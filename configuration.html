@@ -65,12 +65,15 @@
     <h2>Board filter</h2>
     <p>
       FlowPaths reads your board's saved filter (including multi-project
-      filters) and loads all its issues automatically. The data-source pill
-      and "View JQL" link show exactly what was queried, so you can always
-      confirm what you're looking at.
+      filters) and loads issues from it automatically — the same bounded
+      fetch described under <a href="#date-range">Date range</a> below (90
+      days of activity, plus anything still open, not literally every issue
+      the board has ever had). The data-source pill and "View JQL" link
+      show exactly what was queried, so you can always confirm what you're
+      looking at.
     </p>
 
-    <h2>Date range</h2>
+    <h2 id="date-range">Date range</h2>
     <p>
       Switch between 30 / 60 / 90-day presets, or pick a custom range.
       FlowPaths loads 90 days of activity up front — plus every item that's
