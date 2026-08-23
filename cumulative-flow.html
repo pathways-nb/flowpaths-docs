@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cumulative Flow Diagram — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html" class="active">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Cumulative Flow Diagram (CFD)</h1>
+    <p class="lede">See work-in-progress, flow rate, and stability at a glance.</p>
+
+    <p>
+      A CFD shows how work accumulates and drains at each workflow stage
+      over time. The construction rules aren't cosmetic — they're what make
+      the signals below actually readable.
+    </p>
+
+    <h2>The four things you can read off it</h2>
+    <ul>
+      <li>The top line is cumulative <strong>arrivals</strong> into the process; the bottom line is cumulative <strong>departures</strong> (Done).</li>
+      <li>It's cumulative, so <strong>no line can ever decrease</strong>.</li>
+      <li><strong>Vertical</strong> distance between two lines = total <strong>WIP</strong> between those steps (the band height).</li>
+      <li><strong>Horizontal</strong> distance between two lines ≈ the approximate average time items spend between those steps.</li>
+    </ul>
+
+    <h2>One trade-off worth knowing</h2>
+    <p>
+      Each line counts items that have <em>reached</em> a stage or beyond,
+      so a line can only go up, never down. That means if an item moves
+      <strong>backward</strong> (e.g. it's reopened), that doesn't show up
+      as a dip in the chart — reopens don't register as a drop here.
+    </p>
+
+    <h2>Warning signs to watch for</h2>
+    <ul>
+      <li><strong>A band that keeps widening</strong> — work is entering a stage faster than it leaves. The fix is usually a WIP limit, not pushing harder.</li>
+      <li><strong>Diverging</strong> arrival/throughput lines — you're starting faster than you're finishing (WIP and cycle time will grow). <strong>Parallel</strong> means stable. <strong>Converging</strong> means you're finishing faster than starting.</li>
+    </ul>
+
+    <h2>How to use it</h2>
+    <ul>
+      <li>A CFD only shows the <strong>past</strong> — it's a retrospective tool, not a forecasting one. For forecasting, use the <a href="scatterplot.html">Scatterplot</a> percentiles or the <a href="forecast.html">Forecast</a> tab.</li>
+      <li>Review it on a fixed cadence (weekly is common) so trend changes get caught early.</li>
+      <li>Drag the Data Control (the brush below the chart) to recompute the summary stats for any sub-window.</li>
+      <li>The status filter hides a status's band temporarily; to permanently remove a status from the metric, set it to <strong>Unmapped</strong> in <a href="configuration.html">Status Mapping</a>.</li>
+    </ul>
+
+    <div class="next-page">
+      Next: <a href="aging-wip.html">Aging WIP →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

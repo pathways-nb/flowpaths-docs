@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuration &amp; Filters — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html" class="active">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Configuration &amp; Filters</h1>
+    <p class="lede">Everything that shapes what the charts show, in one place.</p>
+
+    <h2>Status Mapping</h2>
+    <p>
+      Click the "Doing → Done" pill in the filter bar. Drag every status
+      your board uses into <strong>To Do</strong>, <strong>Doing</strong>,
+      <strong>Done</strong> — or <strong>Unmapped</strong> to exclude it
+      entirely. Cycle time is measured per issue from the first time it
+      enters a Doing status to the first time it enters a Done status, so
+      boards spanning multiple projects with different workflows are all
+      measured consistently. Saved per project.
+    </p>
+
+    <h2>Status filter</h2>
+    <p>
+      The "Statuses (N/M)" dropdown subsets which work items are shown by
+      their <em>current</em> status — applied to every chart. Each status
+      shows how many loaded items are currently in it, e.g. "In Progress
+      (20)." This is a temporary view filter, separate from Status Mapping.
+    </p>
+
+    <h2>Board filter</h2>
+    <p>
+      FlowPaths reads your board's saved filter (including multi-project
+      filters) and loads all its issues automatically. The data-source pill
+      and "View JQL" link show exactly what was queried, so you can always
+      confirm what you're looking at.
+    </p>
+
+    <h2>Date range</h2>
+    <p>
+      Switch between 30 / 60 / 90-day presets, or pick a custom range.
+      FlowPaths loads 90 days up front, so switching between the presets is
+      instant — no refetch — unless a custom range reaches further back than
+      what's already loaded.
+    </p>
+
+    <h2>Issue types</h2>
+    <p>Multi-select chips filter every chart by Story / Bug / Task / etc.</p>
+
+    <h2>Exclusions</h2>
+    <p>
+      Remove a specific issue (a known outlier, a mis-tracked item) from
+      every metric with the Exclude action. Excluded issues persist per
+      project until you restore them.
+    </p>
+
+    <h2>Rework: returns &amp; reopens</h2>
+    <p>
+      Shown in <a href="aging-wip.html">Aging WIP</a>. A <strong>return</strong>
+      is a backward step in the workflow that didn't come from Done (e.g.
+      QA → In Development); a <strong>reopen</strong> is a backward step
+      from a Done status. "Backward" follows your Status Mapping order, so
+      it even catches bounce-backs within the Doing lanes.
+    </p>
+
+    <h2>How days are counted</h2>
+    <p>
+      Cycle time and item age are <strong>inclusive calendar days</strong>,
+      counted in your <strong>Jira site's own timezone</strong> — not each
+      viewer's personal timezone. An item that starts and finishes on the
+      same day counts as 1 day, never 0. All day/week buckets across every
+      chart (Scatterplot, CFD, throughput, Aging WIP) use that same site
+      timezone, so the numbers match what Jira itself reports, and look
+      identical for every viewer regardless of their own profile timezone.
+    </p>
+
+    <h2>Download PNG</h2>
+    <p>
+      Every main chart has a small download icon in the top-right corner.
+      Click it to save the chart as a PNG for reports or chat — this exports
+      the chart only, not the filter bar or JQL.
+    </p>
+
+    <h2>Focus mode</h2>
+    <p>
+      The expand icon next to Download PNG opens the chart in a large
+      in-app overlay for easier reading. Press <kbd>Esc</kbd>, click the ✕,
+      or click outside the chart to return.
+    </p>
+
+    <div class="next-page">
+      Next: <a href="faq.html">FAQ →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

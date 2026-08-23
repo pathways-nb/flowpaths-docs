@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cycle Time Scatterplot — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html" class="active">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Cycle Time Scatterplot</h1>
+    <p class="lede">How predictable your delivery actually is, from real history.</p>
+
+    <p>
+      Each dot is one finished item. The cloud of dots is your delivery-time
+      distribution — the core chart for seeing how consistent your team's
+      delivery actually is, rather than relying on a felt sense of "we're
+      usually pretty fast."
+    </p>
+
+    <h2>Reading a dot</h2>
+    <ul>
+      <li><strong>X (horizontal)</strong> — the date the item completed (reached Done).</li>
+      <li><strong>Y (vertical)</strong> — its cycle time, in days.</li>
+      <li>A number on a dot means that many items share the same completion date and cycle time. Click any dot to see the item's full status journey with timestamps.</li>
+    </ul>
+
+    <h2>How cycle time is measured</h2>
+    <p>
+      Per item, from its own history: <strong>start</strong> = the first
+      time it entered a <strong>Doing</strong> status (the commitment
+      point); <strong>end</strong> = the first time it entered a
+      <strong>Done</strong> status. Cycle time is the number of calendar
+      days between those two points, <strong>plus one</strong>, with a
+      minimum of one day — so an item that starts and finishes on the same
+      day counts as 1 day, never 0.
+    </p>
+
+    <h2>The percentile lines are your SLEs</h2>
+    <p>
+      The dashed lines mark the 50th, 70th, 85th, and 95th percentiles.
+      Read them as <strong>Service Level Expectations</strong>: an 85% line
+      at 12 days means <em>"85% of our items finish in 12 days or less."</em>
+      Use the 85th or 95th percentile for commitments — they're the same
+      numbers used behind the scenes in the <a href="forecast.html">Forecast</a>
+      tab.
+    </p>
+
+    <h2>Useful controls</h2>
+    <ul>
+      <li><strong>Y-axis trim</strong> hides extreme outliers from view without dropping them from the underlying data or percentile calculations.</li>
+      <li><strong>Exclude</strong> removes a genuine one-off (e.g. a mis-tracked item) from every chart, not just this one. See <a href="configuration.html">Configuration &amp; Filters</a>.</li>
+      <li><strong>PNG export</strong> and <strong>Focus mode</strong> are available on every main chart via the icons in the top-right corner.</li>
+    </ul>
+
+    <div class="next-page">
+      Next: <a href="cumulative-flow.html">Cumulative Flow Diagram →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

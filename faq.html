@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html" class="active">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>FAQ</h1>
+    <p class="lede">Common questions, answered.</p>
+
+    <div class="faq-item">
+      <div class="faq-q">Does FlowPaths write anything back to Jira?</div>
+      <p>No. Every Jira call FlowPaths makes is read-only. It never creates, edits, or deletes issues, statuses, or workflows.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does it only work with Kanban boards?</div>
+      <p>No — FlowPaths works with any Jira Software project board, whether your team runs continuous flow or sprints. It measures how work actually flowed through your statuses, which applies either way.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What data does FlowPaths access?</div>
+      <p>Issue status, type, and dates (created, resolved, updated) plus status-change history and board configuration — never assignee, reporter, comments, attachments, or any other user-identifying field. See the <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a> for the full breakdown.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to configure anything before using it?</div>
+      <p>No. FlowPaths reads your board's existing saved filter automatically and shows a chart immediately. Setting up <a href="configuration.html">Status Mapping</a> is optional but recommended, since it's what makes cycle time accurate for your specific workflow.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">My numbers look wrong — why?</div>
+      <p>This is almost always a Status Mapping issue. If a status is left Unmapped, or mapped to the wrong stage, cycle time and the Dashboard KPIs will be off. Open the "Doing → Done" pill and check every status on your board is mapped correctly.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is my data shared with anyone outside Atlassian?</div>
+      <p>No. FlowPaths makes zero calls to any third party — no analytics, no external servers. It's eligible for Atlassian's "Runs on Atlassian" program, which specifically certifies apps with no external network egress.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What happens to my configuration if I uninstall FlowPaths?</div>
+      <p>Your Status Mapping and excluded-issue lists are stored in Atlassian's own Forge storage, not on any server of ours, and follow Atlassian's standard data-lifecycle/deletion process on uninstall. See <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy §7</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I use it across multiple projects or boards?</div>
+      <p>Yes. Status Mapping and exclusions are saved per project, so each project keeps its own configuration — switching projects in Jira automatically switches which configuration FlowPaths uses.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How is this different from just looking at the board?</div>
+      <p>The board shows you what's happening right now. FlowPaths measures how work has actually moved historically, and turns that into percentiles, trend signals, and forecasts — so conversations about predictability are grounded in data instead of a felt sense of speed.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does FlowPaths cost?</div>
+      <p>FlowPaths has a free tier for smaller teams, with usage-based pricing beyond that. See the Pricing tab on the <a href="https://marketplace.atlassian.com">Atlassian Marketplace</a> listing for current details.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Something's not working — how do I get help?</div>
+      <p>Email <a href="mailto:info@yourpaths.eu?subject=FlowPaths%20support">info@yourpaths.eu</a> — this is also where you can report a bug or suggest an improvement.</p>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

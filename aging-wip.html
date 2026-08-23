@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aging WIP — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html" class="active">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Aging WIP</h1>
+    <p class="lede">Catch at-risk work before it slips — not after.</p>
+
+    <p>
+      Aging WIP is the proactive companion to the
+      <a href="scatterplot.html">Scatterplot</a>. The Scatterplot shows
+      <em>finished</em> work; this shows your <strong>currently open</strong>
+      work and how long it's been aging, so you can act before an item
+      becomes an outlier.
+    </p>
+
+    <h2>Reading a dot</h2>
+    <ul>
+      <li><strong>X (column)</strong> — the item's current Doing status (its lane in the workflow).</li>
+      <li><strong>Y (vertical)</strong> — its age: days since it first entered a Doing status (the commitment point), up to now.</li>
+      <li>Click a dot, or a row in "Needs attention," to open its status history and rework. The issue key opens it directly in Jira.</li>
+    </ul>
+
+    <h2>The percentile lines are the same SLEs</h2>
+    <p>
+      The dashed 50/70/85/95th lines come from your <strong>completed</strong>
+      cycle times — the same lines shown on the Scatterplot. An open item
+      sitting above the 85th line has already aged longer than 85% of
+      finished items took end-to-end, so it's statistically likely to become
+      a slow outlier. Above the 95th line, it's critical.
+    </p>
+
+    <h2>Rework: returns &amp; reopens</h2>
+    <p>
+      A <strong>return</strong> is a backward step in the workflow that
+      didn't come from Done (e.g. QA → In Development). A
+      <strong>reopen</strong> is a backward step from a Done status.
+      "Backward" follows your <a href="configuration.html">Status Mapping</a>
+      order, so it even catches bounce-backs within the Doing lanes. High
+      rework on an aging item is a strong "needs a closer look" signal — it
+      usually means the item is churning rather than progressing.
+    </p>
+
+    <h2>How to use it</h2>
+    <ul>
+      <li>It's a <strong>"right now" snapshot</strong>, not history — best used in daily stand-ups or WIP reviews.</li>
+      <li>Work the "Needs attention" table top-down: oldest and highest-risk first. Pull these to done before starting new work.</li>
+      <li>Items aging in a queue or hand-off status (Ready for…, Blocked) are the usual culprits — they erode flow efficiency.</li>
+      <li>Rising age across a column over time is a sign to apply or tighten a WIP limit.</li>
+    </ul>
+
+    <p class="callout">
+      Age starts at the first Doing transition — or at the issue's creation
+      date, if it was created directly into a Doing status.
+    </p>
+
+    <div class="next-page">
+      Next: <a href="forecast.html">Forecast (Monte Carlo) →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

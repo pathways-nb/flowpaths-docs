@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html" class="active">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="scatterplot.html">Cycle Time Scatterplot</a>
+    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
+    <a href="aging-wip.html">Aging WIP</a>
+    <a href="forecast.html">Forecast (Monte Carlo)</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Getting Started</h1>
+    <p class="lede">
+      From install to your first chart in about five minutes — no
+      configuration required.
+    </p>
+
+    <ol class="steps">
+      <li>
+        <strong>Install FlowPaths</strong> from the Atlassian Marketplace
+        onto your Jira Cloud site.
+      </li>
+      <li>
+        <strong>Open a Software project with a board.</strong> FlowPaths
+        appears as a tab in that project's sidebar. It only shows up on
+        Software projects with a board — there's nothing to configure to
+        make it appear.
+      </li>
+      <li>
+        <strong>That's it — your first chart is already there.</strong>
+        FlowPaths automatically reads your board's existing saved filter
+        (including multi-project filters) and loads the last 90 days of
+        issues. The data-source pill and "View JQL" link show you exactly
+        what was queried, so you can always confirm what you're looking at.
+      </li>
+      <li>
+        <strong>Set your Status Mapping (recommended, takes a minute).</strong>
+        Click the "Doing → Done" pill in the filter bar and drag each of
+        your board's statuses into <strong>To Do</strong>,
+        <strong>Doing</strong>, or <strong>Done</strong> — or
+        <strong>Unmapped</strong> to ignore a status entirely. This is what
+        makes cycle time accurate for your specific workflow. See
+        <a href="configuration.html">Configuration &amp; Filters</a> for
+        details.
+      </li>
+      <li>
+        <strong>Explore the tabs.</strong> Start with the
+        <a href="dashboard.html">Dashboard</a> for the big picture, then dig
+        into <a href="scatterplot.html">Scatterplot</a>,
+        <a href="cumulative-flow.html">Cumulative Flow</a>,
+        <a href="aging-wip.html">Aging WIP</a>, or
+        <a href="forecast.html">Forecast</a> for the details behind it.
+      </li>
+    </ol>
+
+    <div class="callout">
+      <strong>Read-only, always.</strong> FlowPaths never writes anything
+      back to your Jira issues, boards, or workflows. Every chart is built
+      by reading data you already have permission to see — access is
+      governed entirely by your existing Jira permissions, not a separate
+      login.
+    </div>
+
+    <h2>Why Status Mapping matters</h2>
+    <p>
+      Every Jira board has its own custom set of statuses (Backlog, In
+      Review, Blocked, QA, Done — whatever yours are called). FlowPaths
+      doesn't guess which of those count as "in progress" or "finished" — you
+      tell it once, per project, and it remembers. Cycle time is then
+      measured per issue from the first time it enters a
+      <strong>Doing</strong> status to the first time it enters a
+      <strong>Done</strong> status, so boards spanning multiple projects with
+      different workflows are all measured consistently.
+    </p>
+
+    <h2>Working with multiple boards or projects</h2>
+    <p>
+      Status Mapping and excluded issues are saved per project, so each
+      project keeps its own configuration. Switching projects in Jira
+      switches which configuration FlowPaths uses automatically.
+    </p>
+
+    <div class="next-page">
+      Next: <a href="dashboard.html">Dashboard →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
