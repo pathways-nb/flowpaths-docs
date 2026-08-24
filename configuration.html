@@ -93,6 +93,32 @@
       project until you restore them.
     </p>
 
+    <h2 id="duration-mode">Duration mode (optional, per project)</h2>
+    <p>
+      By default, cycle time and age are measured in whole calendar days —
+      the standard, verifiable convention most flow-metrics tools use. If
+      your team's work regularly finishes within hours, that convention can
+      start clustering too much of the Scatterplot at exactly "1 day" to
+      stay useful — a task that took 15 minutes and one that took 20 hours
+      both just read as "1 day."
+    </p>
+    <p>
+      Duration mode switches Cycle Time and Aging WIP to raw elapsed
+      duration instead (shown as hours or minutes when under a day) — no
+      calendar-day rounding. Turn it on with the pill next to Status
+      Mapping. It's off by default and saved per project, exactly like
+      Status Mapping, so different projects can use whichever convention
+      fits their pace.
+    </p>
+    <div class="callout">
+      <strong>Scope:</strong> Dashboard, Scatterplot, and Aging WIP switch
+      units when this is on. The Cumulative Flow Diagram and Forecast are
+      unaffected — both are inherently daily-bucketed (a CFD is a snapshot
+      of WIP per day; Forecast resamples daily throughput to answer
+      date-based questions), so "duration" doesn't change how they work
+      either way.
+    </div>
+
     <h2>Rework: returns &amp; reopens</h2>
     <p>
       Shown in <a href="aging-wip.html">Aging WIP</a>. A <strong>return</strong>
