@@ -41,7 +41,7 @@
 
   <main class="content">
     <h1>Cumulative Flow Diagram (CFD)</h1>
-    <p class="lede">See work-in-progress, flow rate, and stability at a glance.</p>
+    <p class="lede">See work-in-progress, flow rate, and stability at a glance &mdash; plus the Throughput Run Chart on the same tab.</p>
 
     <p>
       A CFD shows how work accumulates and drains at each workflow stage
@@ -70,6 +70,42 @@
       <li><strong>A band that keeps widening</strong> — work is entering a stage faster than it leaves. The fix is usually a WIP limit, not pushing harder.</li>
       <li><strong>Diverging</strong> arrival/throughput lines — you're starting faster than you're finishing (WIP and cycle time will grow). <strong>Parallel</strong> means stable. <strong>Converging</strong> means you're finishing faster than starting.</li>
     </ul>
+
+    <h2>Throughput Run Chart</h2>
+    <p>
+      Below the CFD on the same tab is the <strong>Throughput Run Chart</strong>:
+      one bar per week (or per day) counting the items that finished in that
+      bucket, with a 4-bucket rolling average and the window mean.
+    </p>
+    <p>
+      It exists because throughput is a time-based metric, and time-based metrics
+      need a time-based chart. The CFD's throughput rate line is a single
+      <em>straight average</em> across the whole window, and the
+      &ldquo;Throughput / week&rdquo; figure on the <a href="dashboard.html">Dashboard</a>
+      is a single number &mdash; both tell you the overall pace but deliberately
+      flatten away <strong>variation</strong>. Two teams averaging 4 items a week
+      look identical there, even if one delivers steadily and the other delivers
+      16 items every fourth week. That difference is what governs how predictable
+      you are.
+    </p>
+    <ul>
+      <li><strong>Level and stable</strong> &mdash; predictable delivery. This is what makes the <a href="forecast.html">Forecast</a> reliable.</li>
+      <li><strong>Wildly uneven bars</strong> &mdash; batching. Work is being held and released together (a test phase, a release gate, an approval queue) rather than flowing item by item.</li>
+      <li><strong>A sustained trend</strong> in the rolling average is a real change in capability. A single tall or empty bar usually isn't.</li>
+      <li><strong>Regular sawtooth</strong> &mdash; a rhythm imposed by the process itself, typically a sprint boundary.</li>
+    </ul>
+    <p>
+      Weeks and days where nothing finished are drawn as <strong>zero</strong>, not
+      skipped. Dropping them would hide genuine stalls and inflate every average
+      taken over the series &mdash; the same reason the Forecast samples every
+      calendar day, including empty ones.
+    </p>
+    <p>
+      Per-day buckets are noisier by nature: weekends and holidays read as zeros,
+      and on smaller teams most days are 0 or 1 however healthy flow is. Weekly is
+      usually the more readable view; switch to daily for high volume or when
+      investigating a specific short period.
+    </p>
 
     <h2>How to use it</h2>
     <ul>
