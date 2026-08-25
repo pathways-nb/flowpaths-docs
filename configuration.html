@@ -76,11 +76,23 @@
     <h2 id="date-range">Date range</h2>
     <p>
       Switch between 30 / 60 / 90-day presets, or pick a custom range.
-      FlowPaths loads 90 days of activity up front — plus every item that's
-      still open regardless of age, so nothing in progress drops out of
-      Aging WIP or your WIP count just for being old — so switching between
+      FlowPaths loads 90 days of activity up front &mdash; plus every item
+      that&rsquo;s still open, whatever its age, so nothing in progress drops
+      out of Aging WIP or your WIP count just for being old. Switching between
       the presets is instant, no refetch, unless a custom range reaches
-      further back than what's already loaded.
+      further back than what&rsquo;s already loaded.
+    </p>
+    <p>
+      Open items are included as long as they&rsquo;ve been <strong>touched in
+      the last year</strong>. Jira updates an item&rsquo;s timestamp on any
+      change at all &mdash; a transition, a comment, a field edit &mdash; so
+      anything genuinely in flight keeps resetting that clock and stays in
+      scope indefinitely, however long it has been open. What falls outside is
+      only work with <em>no activity whatsoever</em> for twelve months, which
+      is abandoned rather than in progress. Excluding it keeps a stale backlog
+      from crowding out recent items when a large board hits the load limit,
+      and stops it flattening the To&nbsp;Do band on the
+      <a href="cumulative-flow.html">Cumulative Flow Diagram</a>.
     </p>
 
     <h2>Issue types</h2>
