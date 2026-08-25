@@ -75,12 +75,27 @@
 
     <h2 id="date-range">Date range</h2>
     <p>
-      Switch between 30 / 60 / 90-day presets, or pick a custom range.
-      FlowPaths loads 90 days of activity up front &mdash; plus every item
-      that&rsquo;s still open, whatever its age, so nothing in progress drops
-      out of Aging WIP or your WIP count just for being old. Switching between
-      the presets is instant, no refetch, unless a custom range reaches
-      further back than what&rsquo;s already loaded.
+      The range control is a track with five stops &mdash; <strong>30d, 60d,
+      90d, 6m, 1y</strong> &mdash; plus <strong>Custom</strong> for any window
+      inside the last year.
+    </p>
+    <p>
+      FlowPaths loads <strong>90 days</strong> of activity when you open a
+      project, so the first three stops are instant &mdash; they filter data
+      already in the browser and never call Jira. The <strong>solid</strong>
+      part of the track shows what is loaded; the <strong>dotted</strong> part
+      shows what is not.
+    </p>
+    <p>
+      Clicking into the dotted part fetches the <strong>full year in one
+      go</strong> &mdash; not just as far as the stop you picked. That is
+      deliberate: it means you wait once per session rather than once per range
+      you try, and every stop is instant afterwards, including going back down
+      to 30d. Hovering a stop tells you which it will be.
+    </p>
+    <p>
+      Unfinished work is always included regardless of the range, as long as it
+      has been touched in the last year &mdash; see below.
     </p>
     <p>
       Open items are included as long as they&rsquo;ve been <strong>touched in
@@ -93,6 +108,35 @@
       from crowding out recent items when a large board hits the load limit,
       and stops it flattening the To&nbsp;Do band on the
       <a href="cumulative-flow.html">Cumulative Flow Diagram</a>.
+    </p>
+
+    <h2 id="fetch-limit">On very large boards</h2>
+    <p>
+      FlowPaths loads at most <strong>2,000 issues</strong> in one go. Most
+      boards never reach it &mdash; a team finishing five items a week produces
+      about 260 a year &mdash; but a large multi-team board can.
+    </p>
+    <p>
+      When it happens, the filter bar shows the <strong>exact date the data is
+      complete from</strong>, and anything older was not loaded. That date is
+      not an estimate: issues are fetched newest-activity-first, so the oldest
+      one received is precisely the boundary. Everything after it is present;
+      everything before it is absent.
+    </p>
+    <p>
+      A number on screen is either correct or explicitly flagged. If you see
+      that warning and your selected range starts before the stated date, the
+      figures for the earlier part of the window are incomplete &mdash; narrow
+      the range to bring it fully inside the complete period.
+    </p>
+
+    <h2 id="refresh">Refresh</h2>
+    <p>
+      The <strong>&#8635;</strong> pill in the filter bar shows how old the
+      loaded data is (&ldquo;4m ago&rdquo;) and reloads it from Jira. Because
+      changing the range never refetches, this is how you pick up work that
+      finished since you opened the app. Navigating away from the project and
+      back also reloads.
     </p>
 
     <h2>Issue types</h2>
