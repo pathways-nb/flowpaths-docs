@@ -80,7 +80,7 @@
     <p>
       It exists because throughput is a time-based metric, and time-based metrics
       need a time-based chart. The CFD's throughput rate line is a single
-      <em>straight average</em> across the whole window, and the
+      <em>straight average</em>, and the
       &ldquo;Throughput / week&rdquo; figure on the <a href="dashboard.html">Dashboard</a>
       is a single number &mdash; both tell you the overall pace but deliberately
       flatten away <strong>variation</strong>. Two teams averaging 4 items a week
@@ -88,6 +88,21 @@
       16 items every fourth week. That difference is what governs how predictable
       you are.
     </p>
+    <h2>Where the rate lines start</h2>
+    <p>
+      The two grey average-rate lines begin at the first day the board has data
+      in your selected window &mdash; not at the left edge of the range. If you
+      pick six months but the board only started three weeks ago, the lines
+      begin three weeks ago, and the rates are averaged over those three weeks.
+    </p>
+    <p>
+      That matters because averaging across empty months would understate both
+      rates badly: thirty items arriving in a fortnight is roughly two a day, not
+      the 0.2 a day you would get by dividing by a whole quarter. Only a
+      <em>leading</em> empty stretch is skipped &mdash; a quiet period in the
+      middle of the window is real signal and still pulls the average down.
+    </p>
+
     <ul>
       <li><strong>Level and stable</strong> &mdash; predictable delivery. This is what makes the <a href="forecast.html">Forecast</a> reliable.</li>
       <li><strong>Wildly uneven bars</strong> &mdash; batching. Work is being held and released together (a test phase, a release gate, an approval queue) rather than flowing item by item.</li>
