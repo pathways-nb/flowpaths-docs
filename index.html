@@ -49,26 +49,27 @@
 
     <h2>What is FlowPaths?</h2>
     <p>
-      FlowPaths is a Jira Cloud app that turns your board's issue history into
-      flow-metrics analytics, using well-established methods: cycle time
-      percentiles, cumulative flow, aging work-in-progress, and Monte Carlo
-      forecasting. Every chart is read-only and builds itself from the
-      statuses your issues actually moved through — nothing to configure to
-      see your first chart, nothing for FlowPaths to write back to your Jira
-      data.
+      FlowPaths is a Jira Cloud app that reads your board's issue history and
+      produces cycle time percentiles, a cumulative flow diagram, aging WIP,
+      and Monte Carlo delivery forecasts. It&rsquo;s read-only &mdash; it never
+      writes back to your Jira data &mdash; and it builds its first chart from
+      your board&rsquo;s existing saved filter, with nothing to configure up
+      front.
     </p>
 
     <h2>The problem it solves</h2>
     <p>
-      Most delivery conversations eventually land on two questions:
-      <strong>"how predictable are we?"</strong> and
-      <strong>"when will this actually be done?"</strong> Teams usually answer
-      these with a mix of gut feel and story-point estimates that don't
-      reliably hold up. FlowPaths answers them differently — using your
-      team's own history, not story points or manual estimation exercises.
-      It measures how work has actually flowed through your board, and uses
-      that real distribution to say how consistent your delivery is and how
-      confident a forecast can be.
+      Two questions come up in most delivery conversations: how predictable is
+      this team, and when will this actually ship. Story points measure
+      relative size, not elapsed time &mdash; the two only correlate loosely,
+      and gut feel doesn&rsquo;t scale past a handful of people&rsquo;s memory.
+      FlowPaths answers both from your team&rsquo;s actual completed work: the
+      real distribution of how long items took, used to state how consistent
+      delivery has been and how confident a forecast can be.
+    </p>
+    <p>
+      This doesn&rsquo;t remove uncertainty &mdash; it replaces a single-point
+      guess with a probability range grounded in your own history.
     </p>
 
     <h2>Who it's for</h2>
