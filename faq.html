@@ -94,6 +94,16 @@
     </div>
 
     <div class="faq-item">
+      <div class="faq-q">Why does nothing show as &ldquo;at risk&rdquo; on my board?</div>
+      <p>Risk is measured against your own completed cycle times, so it needs enough finished work to be meaningful. With fewer than <strong>7</strong> completed items the &ldquo;85th percentile&rdquo; would just be the slowest one you have, and with fewer than 20 the same is true of the 95th. Until then FlowPaths flags nothing and tells you how many more completed items it needs, rather than showing a number it cannot stand behind. A new project will start flagging work as soon as a handful of items finish.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">I filtered to one issue type and the risk flags disappeared &mdash; why?</div>
+      <p>They shouldn&rsquo;t any more. Each issue type is judged against its own completed history once there are 7 or more finished items of that type, because Bugs and Stories genuinely flow differently. When a type has too little history of its own, risk falls back to your whole board&rsquo;s history and the panel says so &mdash; an item that is genuinely running long stays flagged whichever way you filter. Note that the <strong>Cycle time (85th pct)</strong> figure is different: it always follows your filter exactly, because it describes the work you selected rather than judging it.</p>
+    </div>
+
+    <div class="faq-item">
       <div class="faq-q">What does FlowPaths cost?</div>
       <p>FlowPaths has a free tier for smaller teams, with usage-based pricing beyond that. See the Pricing tab on the <a href="https://marketplace.atlassian.com">Atlassian Marketplace</a> listing for current details.</p>
     </div>

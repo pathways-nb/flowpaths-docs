@@ -67,6 +67,44 @@
       a slow outlier. Above the 95th line, it's critical.
     </p>
 
+    <h2>How much finished work a line needs</h2>
+    <p>
+      A percentile only means something once there is enough completed work
+      behind it. With fewer than <strong>7</strong> finished items, the
+      &ldquo;85th percentile&rdquo; is simply the slowest one you have; below
+      <strong> 20</strong>, the same is true of the 95th. So the 85th line and
+      its <em>At risk</em> label need 7 completed items, and the 95th line and
+      <em>Critical</em> need 20.
+    </p>
+    <p>
+      Below those counts no line is drawn and nothing is flagged. The panel
+      tells you how many more completed items it needs rather than showing a
+      number it cannot stand behind &mdash; otherwise a project with a single
+      finished item would label everything older than that one item
+      &ldquo;Critical&rdquo;.
+    </p>
+
+    <h2>Filtering by issue type</h2>
+    <p>
+      Different work types flow differently, so each type is judged against
+      <strong> its own</strong> completed history once there are 7 or more of
+      it. Filter to Bugs and you are compared with Bugs.
+    </p>
+    <p>
+      When a type has too little finished work of its own, risk falls back to
+      your <strong>whole board&rsquo;s</strong> history instead, and the panel
+      says so. That keeps a genuinely old item flagged rather than letting it
+      disappear just because you narrowed the view &mdash; without it, the same
+      item could read &ldquo;Critical&rdquo; with all types selected and
+      unremarkable with one, purely because of what else was on screen.
+    </p>
+    <p>
+      The <strong>Cycle time (85th pct)</strong> figure on the Dashboard always
+      follows your filter exactly, because it <em>describes</em> the work you
+      selected. Only the risk threshold falls back, because judging an item
+      needs a sample that describing one does not.
+    </p>
+
     <h2>Rework: returns &amp; reopens</h2>
     <p>
       A <strong>return</strong> is a backward step in the workflow that
