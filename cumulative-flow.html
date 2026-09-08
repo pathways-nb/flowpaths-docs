@@ -49,6 +49,11 @@
       the signals below actually readable.
     </p>
 
+    <figure class="shot">
+      <img src="assets/img/cumulative-flow.png" alt="Cumulative Flow Diagram with stacked status bands, arrival and throughput rate lines, and a hover tooltip" loading="lazy">
+      <figcaption>The Cumulative Flow Diagram. Band height is WIP in that status, band slope is flow rate, and the horizontal gap between lines is roughly cycle time. The banner above the chart reads the two grey rate lines for you &mdash; here <strong>stable</strong>, with arrivals and throughput both at 0.6/day.</figcaption>
+    </figure>
+
     <h2>The four things you can read off it</h2>
     <ul>
       <li>The top line is cumulative <strong>arrivals</strong> into the process; the bottom line is cumulative <strong>departures</strong> (Done).</li>
@@ -70,6 +75,11 @@
       <li><strong>A band that keeps widening</strong> — work is entering a stage faster than it leaves. The fix is usually a WIP limit, not pushing harder.</li>
       <li><strong>Diverging</strong> arrival/throughput lines — you're starting faster than you're finishing (WIP and cycle time will grow). <strong>Parallel</strong> means stable. <strong>Converging</strong> means you're finishing faster than starting.</li>
     </ul>
+
+    <figure class="shot">
+      <img src="assets/img/throughput-run-chart.png" alt="Summary statistics table per workflow stage above the Throughput Run Chart" loading="lazy">
+      <figcaption>Per-stage arrival rate, throughput, WIP and cycle time, above the Throughput Run Chart. The bars are raw daily counts and the orange line a 4-day rolling average &mdash; this is where week-to-week variation shows, which the CFD’s straight average deliberately flattens away.</figcaption>
+    </figure>
 
     <h2>Throughput Run Chart</h2>
     <p>

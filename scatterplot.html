@@ -50,12 +50,22 @@
       usually pretty fast."
     </p>
 
+    <figure class="shot">
+      <img src="assets/img/scatterplot.png" alt="Cycle Time Scatterplot with 50th, 70th, 85th and 95th percentile lines" loading="lazy">
+      <figcaption>Each dot is one completed item, positioned by completion date and cycle time. The dashed lines are your 50th, 70th, 85th and 95th percentiles; the table below counts how many items fall in each band. A numbered dot means several items share that date and cycle time.</figcaption>
+    </figure>
+
     <h2>Reading a dot</h2>
     <ul>
       <li><strong>X (horizontal)</strong> — the date the item completed (reached Done).</li>
       <li><strong>Y (vertical)</strong> — its cycle time, in days.</li>
       <li>A number on a dot means that many items share the same completion date and cycle time. Click any dot to see the item's full status journey with timestamps.</li>
     </ul>
+
+    <figure class="shot">
+      <img src="assets/img/scatterplot-detail.png" alt="Detail panel showing an item status journey and its raw changelog transitions" loading="lazy">
+      <figcaption>Clicking a dot opens its actual status journey with time spent in each status, plus the raw changelog transitions the cycle time was derived from &mdash; so any number on the chart can be traced back to what really happened. <strong>Exclude from metrics</strong> drops a one-off outlier from every chart.</figcaption>
+    </figure>
 
     <h2>How cycle time is measured</h2>
     <p>

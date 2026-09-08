@@ -198,3 +198,26 @@ footer.site-footer a:hover { text-decoration: underline; }
   .sidebar a { padding: 5px 10px; font-size: 13px; }
   .content { padding: 28px 20px 60px; max-width: none; }
 }
+
+/* ── Screenshots ──────────────────────────────────────────────────────────
+   Every screenshot is redacted: board name, issue keys and summaries are
+   blanked. Only generic workflow statuses and issue types remain visible. */
+.shot { margin: 22px 0 26px; }
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #DFE1E6;
+  border-radius: 6px;
+  background: #fff;
+}
+.shot figcaption {
+  margin-top: 9px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6B778C;
+}
+.shot figcaption strong { color: #42526E; }
+@media (prefers-color-scheme: dark) {
+  .shot img { border-color: #2C333A; }
+}

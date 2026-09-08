@@ -54,6 +54,11 @@
       measured consistently. Saved per project.
     </p>
 
+    <figure class="shot">
+      <img src="assets/img/status-mapping.png" alt="Status Mapping drawer with statuses dragged into To Do, Doing, Done and Unmapped buckets" loading="lazy">
+      <figcaption>Status Mapping. Drag each status into a bucket &mdash; cycle time starts the first time an item enters a <strong>Doing</strong> status and ends the first time it enters a <strong>Done</strong> one. Unmapped statuses are ignored entirely, which is how boards spanning several projects with different workflows stay comparable.</figcaption>
+    </figure>
+
     <h2>Status filter</h2>
     <p>
       The "Statuses (N/M)" dropdown subsets which work items are shown by
@@ -61,6 +66,11 @@
       shows how many loaded items are currently in it, e.g. "In Progress
       (20)." This is a temporary view filter, separate from Status Mapping.
     </p>
+
+    <figure class="shot">
+      <img src="assets/img/filter-statuses.png" alt="Status filter dropdown grouped by Doing, Done, To Do and Unmapped" loading="lazy">
+      <figcaption>The status filter narrows what you are looking at, grouped by bucket so the mapping is visible while you choose. It changes the view only &mdash; the percentile thresholds behind the risk labels are not recomputed from a filtered subset.</figcaption>
+    </figure>
 
     <h2>Board filter</h2>
     <p>
@@ -72,6 +82,11 @@
       show exactly what was queried, so you can always confirm what you're
       looking at.
     </p>
+
+    <figure class="shot">
+      <img src="assets/img/filter-types.png" alt="Issue type filter dropdown listing the types present on the board" loading="lazy">
+      <figcaption>The issue type filter. Each type is judged against its own completed history once there are enough finished items of it; below that, risk falls back to the whole board and the app says so rather than silently flagging nothing.</figcaption>
+    </figure>
 
     <h2 id="date-range">Date range</h2>
     <p>
@@ -109,6 +124,11 @@
       and stops it flattening the To&nbsp;Do band on the
       <a href="cumulative-flow.html">Cumulative Flow Diagram</a>.
     </p>
+
+    <figure class="shot">
+      <img src="assets/img/settings.png" alt="Settings drawer showing Calendar days and Duration mode measurement options" loading="lazy">
+      <figcaption>Settings, saved per project. <strong>Calendar days</strong> is the default and the convention most flow-metrics tools use. <strong>Duration mode</strong> switches to raw elapsed time, which helps when work regularly finishes the same day and everything would otherwise cluster at &ldquo;1 day&rdquo;.</figcaption>
+    </figure>
 
     <h2 id="fetch-limit">On very large boards</h2>
     <p>

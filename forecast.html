@@ -51,6 +51,11 @@
       <strong>"how many will be done by a date?"</strong>
     </p>
 
+    <figure class="shot">
+      <img src="assets/img/forecast-when.png" alt="Monte Carlo forecast answering when 30 items will finish, at four confidence levels" loading="lazy">
+      <figcaption><strong>When will N items finish?</strong> &mdash; 30 items, simulated 10,000 times from historical throughput. Each card is a confidence level: 50% by Oct&nbsp;26, but 85% by Nov&nbsp;8. The histogram shows the full distribution, with the low-confidence tail in red.</figcaption>
+    </figure>
+
     <h2>How it works</h2>
 
     <h3>1 · Historical sample</h3>
@@ -83,6 +88,11 @@
       <li>For <strong>"how many"</strong>, FlowPaths reports a lower bound ("at least this many"), so 85% confidence is actually the 15th-percentile count — a higher confidence number here means <em>fewer</em> items, since it's being more cautious about the promise.</li>
     </ul>
     <p>Use the 85% or 95% rows for commitments — the same percentiles used on the <a href="scatterplot.html">Scatterplot</a> and <a href="aging-wip.html">Aging WIP</a>.</p>
+
+    <figure class="shot">
+      <img src="assets/img/forecast-how-many.png" alt="Monte Carlo forecast answering how many items will be done by a target date" loading="lazy">
+      <figcaption><strong>How many done by a date?</strong> &mdash; the same simulation asked the other way round. By 31&nbsp;October you can be 50% confident of 33 items, but 95% confident only of 22. The gap between those two numbers is the honest measure of your predictability.</figcaption>
+    </figure>
 
     <h2>Assumptions &amp; limits</h2>
     <ul>
