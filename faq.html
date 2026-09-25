@@ -74,6 +74,27 @@
     </div>
 
     <div class="faq-item">
+      <div class="faq-q">Why did my cycle time change when I unticked a status?</div>
+      <p>Because the <strong>Doing</strong> checkboxes in the Statuses dropdown do more than filter. With some of them unticked, every time-based number becomes the time spent in the statuses still ticked, rather than the full Doing&nbsp;&rarr;&nbsp;Done cycle time &mdash; which is how you measure a single stage, like &ldquo;how long does review take?&rdquo;. The pill turns blue and a note above each chart says what is being measured. Tick every Doing status to go back. See <a href="configuration.html#statuses">Statuses dropdown</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Does my status selection affect my teammates?</div>
+      <p>No. The ticks are remembered in your own browser, per board, and are never shared or stored by the app. Status Mapping, which <em>is</em> shared, is unaffected. If the board&rsquo;s statuses change, your view resets to the default rather than quietly measuring something you never chose.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Where does the CSV export send my data?</div>
+      <p>Nowhere. The file is written by your browser straight to your own disk &mdash; nothing is uploaded, and nothing reaches us or any third party. It contains only the fields already on your screen, and <strong>no people are named in it</strong>: assignee, reporter and the authors of status changes are never included, because FlowPaths never reads them. See <a href="configuration.html#export-csv">Export to CSV</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What happens if our subscription lapses?</div>
+      <p>FlowPaths pauses and shows a &ldquo;No active subscription found&rdquo; screen instead of the charts. There is no countdown or trial extension beyond the one Atlassian itself provides &mdash; access resumes as soon as the subscription is active again.</p>
+      <p><strong>Nothing is deleted.</strong> Your Status Mapping, exclusions and other settings are untouched and come straight back. If you believe you are seeing this in error, your Jira administrator can check the subscription under <strong>Settings &rarr; Apps &rarr; Manage apps</strong>; if it looks correct and the app still says otherwise, <a href="mailto:info@yourpaths.eu">email us</a>.</p>
+    </div>
+
+    <div class="faq-item">
       <div class="faq-q">Is my data shared with anyone outside Atlassian?</div>
       <p>No. FlowPaths makes zero calls to any third party — no analytics, no external servers. It's eligible for Atlassian's "Runs on Atlassian" program, which specifically certifies apps with no external network egress.</p>
     </div>

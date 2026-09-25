@@ -140,6 +140,19 @@
       <li>The status filter hides a status's band temporarily; to permanently remove a status from the metric, set it to <strong>Unmapped</strong> in <a href="configuration.html">Status Mapping</a>.</li>
     </ul>
 
+    <h2 id="measure">This chart does not narrow</h2>
+    <p>
+      Unlike the other tabs, the CFD is a <strong>whole-system view</strong>:
+      its rates, WIP and per-stage cycle times always count every item, whatever
+      is ticked in the <a href="configuration.html#statuses">Statuses dropdown</a>. Unticking a status hides its <strong>band</strong>,
+      and the items in it are drawn in the previous visible band &mdash; so that
+      band&rsquo;s WIP and cycle time include the hidden status&rsquo;s time.
+    </p>
+    <p>
+      The note above the chart states this in both states, so a narrowed measure
+      elsewhere in the app is never mistaken for one here.
+    </p>
+
     <div class="next-page">
       Next: <a href="aging-wip.html">Aging WIP →</a>
     </div>

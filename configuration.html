@@ -59,12 +59,60 @@
       <figcaption>Status Mapping. Drag each status into a bucket &mdash; cycle time starts the first time an item enters a <strong>Doing</strong> status and ends the first time it enters a <strong>Done</strong> one. Unmapped statuses are ignored entirely, which is how boards spanning several projects with different workflows stay comparable.</figcaption>
     </figure>
 
-    <h2>Status filter</h2>
+    <h2 id="statuses">Statuses dropdown</h2>
     <p>
-      The "Statuses (N/M)" dropdown subsets which work items are shown by
-      their <em>current</em> status — applied to every chart. Each status
-      shows how many loaded items are currently in it, e.g. "In Progress
-      (20)." This is a temporary view filter, separate from Status Mapping.
+      The &ldquo;Statuses (N/M)&rdquo; dropdown does <strong>two different
+      jobs</strong>, and the group a status sits in decides which. Each status
+      shows how many loaded items are currently in it, e.g. &ldquo;In Progress
+      (20).&rdquo;
+    </p>
+
+    <h3>To Do, Done and Unmapped &mdash; a view filter</h3>
+    <p>
+      Unticking these simply hides work items by their <em>current</em> status,
+      across every chart. Nothing is recalculated; you are choosing what to look
+      at. This is temporary and separate from Status Mapping.
+    </p>
+
+    <h3>Doing &mdash; a measure</h3>
+    <p>
+      Unticking some of the <strong>Doing</strong> statuses changes
+      <em>what is being measured</em>. Every time-based number in the app &mdash;
+      scatterplot dots and percentile lines, the cycle-time KPI and its trend,
+      item age and risk &mdash; becomes the <strong>time spent in the Doing
+      statuses still ticked</strong>, adding up every visit, instead of the full
+      Doing&nbsp;&rarr;&nbsp;Done cycle time.
+    </p>
+    <p>
+      This is how you answer &ldquo;how long does review actually take?&rdquo;
+      without changing your workflow or your Status Mapping. Tick every Doing
+      status again to return to ordinary cycle time.
+    </p>
+    <ul>
+      <li>Items that <strong>never entered</strong> the ticked statuses drop out
+        of those charts entirely.</li>
+      <li>Throughput and the Forecast count only items that passed
+        <em>through</em> the ticked statuses.</li>
+      <li>The pill turns blue while a narrowed measure is on, and a note above
+        every chart states exactly what is being measured.</li>
+      <li><strong>Status Mapping is not affected.</strong> This is a way of
+        reading your data, not a change to it.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>The Cumulative Flow Diagram is the exception.</strong> It stays a
+      whole-system view and always counts every item, whatever is ticked &mdash;
+      its rates, WIP and per-stage cycle times do not narrow. The note above the
+      chart says so in both states.
+    </div>
+
+    <h3>Your selection is yours alone</h3>
+    <p>
+      The ticks are remembered <strong>in your own browser</strong>, per board,
+      so they are still there when you come back. They are not shared with your
+      team and not stored by the app. If the board&rsquo;s statuses change
+      &mdash; one renamed, one added &mdash; the view returns to the default
+      rather than quietly measuring something you never chose.
     </p>
 
     <figure class="shot">
@@ -214,6 +262,14 @@
       timezone, so the numbers match what Jira itself reports, and look
       identical for every viewer regardless of their own profile timezone.
     </p>
+    <p>
+      <strong>Time in a status</strong> &mdash; used by the narrowed measure
+      above, and by the export&rsquo;s &ldquo;time in status&rdquo; columns
+      &mdash; counts the distinct calendar days an item sat in that status. A
+      day touched by two separate visits counts once, and a visit that starts
+      and ends the same day counts as 1 day. In
+      <a href="#duration-mode">Duration mode</a> it is raw elapsed time instead.
+    </p>
 
     <h2>Download PNG</h2>
     <p>
@@ -221,6 +277,38 @@
       Click it to save the chart as a PNG for reports or chat — this exports
       the chart only, not the filter bar or JQL.
     </p>
+
+    <h2 id="export-csv">Export to CSV</h2>
+    <p>
+      The <strong>&#10515; Export</strong> pill in the filter bar downloads the
+      work items currently loaded, so you can take the numbers into a
+      spreadsheet or your own tooling. Two files are produced:
+    </p>
+    <ul>
+      <li><strong>Items</strong> &mdash; one row per work item: key, summary,
+        type, status, dates, computed cycle time, time in each status, and
+        rework counts.</li>
+      <li><strong>Transitions</strong> &mdash; one row per status change, which
+        is what you need to reproduce the timings yourself.</li>
+    </ul>
+    <p>
+      The contents are exactly the fields FlowPaths already reads and shows on
+      screen &mdash; nothing more is fetched for the export.
+      <strong>No people are named in either file.</strong> Assignee, reporter
+      and the authors of status changes are never included, because the app
+      never reads them in the first place.
+    </p>
+    <p>
+      Items you have excluded are still written out and <strong>flagged as
+      excluded</strong> rather than dropped, so an audit of the file never finds
+      something silently missing.
+    </p>
+    <div class="callout">
+      <strong>The file is written in your browser.</strong> Nothing is uploaded
+      and nothing is sent to us or to any third party &mdash; the data goes from
+      your screen to your own disk, at your click, exactly as a copy-paste
+      would. This is the same mechanism <em>Download PNG</em> above uses.
+    </div>
 
     <h2>Focus mode</h2>
     <p>
