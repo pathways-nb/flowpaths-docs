@@ -92,10 +92,22 @@
       Untick some of the <strong>Doing</strong> statuses and the headline
       numbers change meaning: the cycle-time KPI and its trend, item age and the
       at-risk count all become the time spent in the statuses still ticked,
-      rather than the whole Doing&nbsp;&rarr;&nbsp;Done span. The KPI relabels
-      itself to <em>Time in statuses</em>, the &ldquo;Needs attention&rdquo;
-      column header changes from <em>Age</em> to match, and a note above the
-      KPIs states exactly what is being measured. See the <a href="configuration.html#statuses">Statuses dropdown</a>.
+      rather than the whole Doing&nbsp;&rarr;&nbsp;Done span. <strong>WIP</strong>
+      counts only the items sitting in those statuses, and throughput counts only
+      items that passed <em>through</em> them.
+    </p>
+    <p>
+      <strong>Done / total is the exception</strong> &mdash; it counts the items
+      created in the period whatever path they took. Three numbers moving and one
+      staying put is easy to misread, so that card&rsquo;s own help says it is
+      unaffected rather than leaving you to guess.
+    </p>
+    <p>
+      The cycle-time KPI relabels itself to <em>Time in statuses</em>, the
+      &ldquo;Needs attention&rdquo; column header changes from <em>Age</em> to match,
+      and a note above the KPIs states exactly what is being measured. Every KPI&rsquo;s
+      &#9432; describes what <em>that</em> number means under the current selection.
+      See the <a href="configuration.html#statuses">Statuses dropdown</a>.
     </p>
 
     <div class="next-page">
