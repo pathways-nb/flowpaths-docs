@@ -74,6 +74,7 @@
     </p>
 
     <h3>3 · 10,000 trials</h3>
+    <p>This is the default. You can <a href="#sprints">choose 100,000</a>.</p>
     <ul>
       <li><strong>When will N finish?</strong> Keep drawing random days, summing completed items, until you reach N — record how many days it took. Repeat 10,000×, giving a distribution of finish times.</li>
       <li><strong>How many by date X?</strong> Sum random draws over the number of days until X. Repeat 10,000×, giving a distribution of item counts.</li>
@@ -94,9 +95,102 @@
       <figcaption><strong>How many done by a date?</strong> &mdash; the same simulation asked the other way round. By 31&nbsp;October you can be 50% confident of 33 items, but 95% confident only of 22. The gap between those two numbers is the honest measure of your predictability.</figcaption>
     </figure>
 
+    <h2 id="planning">Planning a forecast</h2>
+    <p>
+      The normal forecast assumes work starts today and that capacity matches
+      your history. If you know otherwise, these controls let you say so. The
+      images in this section use example data.
+    </p>
+
+    <h3 id="start-date">Start date</h3>
+    <p>
+      For work that has not started, set when it begins. Simulated days start
+      on that date, and results still count from today. It does not check
+      whether the team will be free by then. <strong>Use today</strong> puts it
+      back.
+    </p>
+
+    <h3 id="capacity-plan">Capacity plan</h3>
+    <ol>
+      <li>Open the <strong>Capacity plan</strong> button.</li>
+      <li>Click a month on the 12-month strip.</li>
+      <li>Choose 100, 75, 50, 25 or 0%, or type a value from 0 to 200.</li>
+    </ol>
+    <p>
+      100% means the same capacity as the history you selected, so two of four
+      people away is 50%. Plan months are calendar months in your Jira
+      site&rsquo;s timezone.
+    </p>
+    <figure class="shot">
+      <img src="assets/img/forecast-capacity-plan.png" alt="Forecast tab with the capacity plan open, January set to 50%, and a bar showing the likely finish" loading="lazy">
+      <figcaption><strong>January at 50%.</strong> The bar under the strip runs from the 50% date in amber to the 95% date in green, with a dot on the 85% date. Darker months have less capacity; green means more than normal.</figcaption>
+    </figure>
+    <p>
+      A capacity plan is a what-if. The normal forecast stays visible, so you
+      can see what the change costs.
+    </p>
+    <figure class="shot">
+      <img src="assets/img/forecast-capacity-chart.png" alt="Forecast cards showing the difference from normal, above a chart with the normal forecast in grey behind" loading="lazy">
+      <figcaption><strong>Compared with normal.</strong> Each card shows the change, such as 5 days later. Grey bars are the normal forecast.</figcaption>
+    </figure>
+
+    <h3>How the percentage is applied</h3>
+    <ul>
+      <li>Each simulated day is still a random day from your history.</li>
+      <li><strong>Below 100%</strong>, each item completed that day counts with that chance, so at 50% each item has an even chance. This keeps the natural variation rather than making the forecast look more certain than it is.</li>
+      <li><strong>Above 100%</strong>, the day&rsquo;s count is multiplied. FlowPaths warns you, because this assumes the team will deliver more than in your history.</li>
+      <li>Months after the 12-month strip use 100%, and a note says so when a forecast runs past it.</li>
+    </ul>
+    <div class="callout">
+      <strong>Don&rsquo;t lower holiday months by default.</strong> On one team&rsquo;s
+      real data, lowering the Christmas period made the forecast worse, because
+      deliveries bunched around the break. Lower a month for a known drop in
+      availability, not because of the calendar alone.
+    </div>
+
+    <h3>Months that cannot affect the forecast</h3>
+    <p>
+      A month before your start date cannot change the result, and neither can
+      one after your target date in &ldquo;how many&rdquo; mode, so those months are
+      greyed out. They keep their values for when the dates change, and
+      <strong>Reset all to 100%</strong> clears them too.
+    </p>
+    <figure class="shot">
+      <img src="assets/img/forecast-capacity-locked.png" alt="Capacity plan with November and December locked because the start date is 11 January" loading="lazy">
+      <figcaption><strong>Starting on 11 January.</strong> November and December are locked. December&rsquo;s 70% is kept, and the button shows it as not used.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/img/forecast-capacity-how-many.png" alt="How many mode with months after the target date locked and a blue bar from the start date to the target" loading="lazy">
+      <figcaption><strong>How many by a date?</strong> Months after the target are locked. The blue bar runs from the start date to the target, and each card shows how many fewer items to expect.</figcaption>
+    </figure>
+
+    <h3>Who sees what</h3>
+    <p>
+      The capacity plan and sprint length are saved for everyone on the board,
+      and are stored as months and percentages only. Start date and simulations
+      are yours alone, and reset when the app reopens.
+    </p>
+
+    <h3 id="sprints">Sprints and 100,000 simulations</h3>
+    <p>
+      <strong>Sprint length</strong> also shows results in sprints of 1 to 4
+      weeks, counted from the start date. It changes the display only and does
+      not read your Jira sprints. Keep <strong>No sprints</strong> for Kanban.
+    </p>
+    <p>
+      <strong>Simulations</strong> offers 10,000 or 100,000. The 10,000 result
+      stays on screen until the larger run finishes. 100,000 steadies the numbers
+      by about a day, but does not make the forecast more accurate, because the
+      limit is how well your history predicts the future.
+    </p>
+    <figure class="shot">
+      <img src="assets/img/forecast-sprints-100k.png" alt="Forecast cards showing results in two-week sprints, with 100,000 simulations selected" loading="lazy">
+      <figcaption><strong>Two-week sprints and 100,000 simulations.</strong> Each date also shows how many sprints it takes.</figcaption>
+    </figure>
+
     <h2>Assumptions &amp; limits</h2>
     <ul>
-      <li>The future resembles the sampled past — no seasonality, trends, or one-off events are modelled.</li>
+      <li>The future resembles the sampled past — no seasonality, trends, or one-off events are modelled, except changes you enter in a <a href="#capacity-plan">capacity plan</a>.</li>
       <li>It counts items by throughput, so every item is treated as equal size (no story points).</li>
       <li>Scope changes and cross-team dependencies aren't modelled.</li>
       <li>More history gives a more reliable forecast — very short windows give noisy results.</li>
