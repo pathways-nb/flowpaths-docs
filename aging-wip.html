@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aging WIP — FlowPaths Documentation</title>
+<title>Aging — FlowPaths Documentation</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,11 +22,11 @@
     <a href="getting-started.html">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html" class="active">Aging WIP</a>
-    <a href="forecast.html">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html" class="active">Aging</a>
+    <a href="forecast.html">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -40,33 +40,34 @@
   </nav>
 
   <main class="content">
-    <h1>Aging WIP</h1>
+    <h1>Aging</h1>
     <p class="lede">Catch at-risk work before it slips — not after.</p>
 
     <p>
-      Aging WIP is the proactive companion to the
-      <a href="scatterplot.html">Scatterplot</a>. The Scatterplot shows
+      Aging is the proactive companion to the
+      <a href="scatterplot.html">Cycle time</a> tab. Cycle time shows
       <em>finished</em> work; this shows your <strong>currently open</strong>
       work and how long it's been aging, so you can act before an item
       becomes an outlier.
     </p>
 
     <figure class="shot">
-      <img src="assets/img/aging-wip.png" alt="Aging WIP chart with items plotted by age against percentile lines, and the Needs attention table" loading="lazy">
-      <figcaption>Every open item plotted by how long it has been aging, in its current status column, against the same percentile lines. The item at 355 days sits far above the 95th, so it is flagged <strong>Critical</strong>; the two in DEV REVIEW past the 85th are flagged <strong>At risk</strong>.</figcaption>
+      <img src="assets/img/aging-wip.png" alt="Aging tab: open items plotted by age in coloured zones, with Needs attention and findings beside the chart" loading="lazy">
+      <figcaption>The headline counts the items in progress past the 85% line. Every open item is plotted by how long it has been aging, in its current status column, against the same percentile lines; the background zones run from green (within 50%) to red (past 95%). Beside the chart: <strong>Needs attention</strong>, <strong>What stands out</strong> and how many items sit in each zone.</figcaption>
     </figure>
 
     <h2>Reading a dot</h2>
     <ul>
       <li><strong>X (column)</strong> — the item's current Doing status (its lane in the workflow).</li>
       <li><strong>Y (vertical)</strong> — its age: days since it first entered a Doing status (the commitment point), up to now.</li>
-      <li>Click a dot, or a row in "Needs attention," to open its status history and rework. The issue key opens it directly in Jira.</li>
+      <li><strong>Colour</strong> — its zone: green within 50%, blue up to 85%, orange past 85% (<em>At risk</em>), red past 95% (<em>Critical</em>).</li>
+      <li>Click a dot, or an item in "Needs attention," to open its status history and rework. The issue key opens it directly in Jira.</li>
     </ul>
 
     <h2>The percentile lines are the same SLEs</h2>
     <p>
       The dashed 50/70/85/95th lines come from your <strong>completed</strong>
-      cycle times — the same lines shown on the Scatterplot. An open item
+      cycle times — the same lines shown on the Cycle time tab. An open item
       sitting above the 85th line has already aged longer than 85% of
       finished items took end-to-end, so it's statistically likely to become
       a slow outlier. Above the 95th line, it's critical.
@@ -104,7 +105,7 @@
       unremarkable with one, purely because of what else was on screen.
     </p>
     <p>
-      The <strong>Cycle time (85th pct)</strong> figure on the Dashboard always
+      The <strong>Cycle time (85th pct)</strong> figure on the Overview always
       follows your filter exactly, because it <em>describes</em> the work you
       selected. Only the risk threshold falls back, because judging an item
       needs a sample that describing one does not.
@@ -124,7 +125,8 @@
     <h2>How to use it</h2>
     <ul>
       <li>It's a <strong>"right now" snapshot</strong>, not history — best used in daily stand-ups or WIP reviews.</li>
-      <li>Work the "Needs attention" table top-down: oldest and highest-risk first. Pull these to done before starting new work.</li>
+      <li>Work the "Needs attention" list top-down: oldest and highest-risk first. Pull these to done before starting new work.</li>
+      <li><strong>What stands out</strong> names the status holding most at-risk items, the oldest item, and how many items have moved back.</li>
       <li>Items aging in a queue or hand-off status (Ready for…, Blocked) are the usual culprits — they erode flow efficiency.</li>
       <li>Rising age across a column over time is a sign to apply or tighten a WIP limit.</li>
     </ul>

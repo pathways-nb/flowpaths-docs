@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard — FlowPaths Documentation</title>
+<title>Overview — FlowPaths Documentation</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,11 +22,11 @@
     <a href="getting-started.html">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html">Aging WIP</a>
-    <a href="forecast.html">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html" class="active">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -40,51 +40,82 @@
   </nav>
 
   <main class="content">
-    <h1>Dashboard</h1>
-    <p class="lede">Your command center — the big picture in one screen.</p>
+    <h1>Overview</h1>
+    <p class="lede">The big picture in one screen, and what to do about it.</p>
 
     <p>
-      The Dashboard is where most people start each visit. It surfaces the
-      headline numbers and tells you what needs attention today, without
-      requiring you to read any of the individual charts first.
+      The Overview tab is where most people start each visit. It answers
+      &ldquo;when will what we have started be done?&rdquo;, shows the headline
+      numbers, and tells you what needs attention today, without requiring you
+      to read any of the individual charts first.
     </p>
 
     <figure class="shot">
-      <img src="assets/img/dashboard.png" alt="The FlowPaths Dashboard: five KPI cards, two trend sparklines, and the Needs attention table" loading="lazy">
-      <figcaption>The Dashboard. Five headline KPIs across the top, each with a trend against the earlier half of the window; two sparklines beneath; and the <strong>Needs attention</strong> list ranked by risk. The At&nbsp;risk card is outlined in red when anything is past the 85th percentile.</figcaption>
+      <img src="assets/img/dashboard.png" alt="The FlowPaths Overview: the work in progress forecast, five KPI cards, Needs attention and Where work waits" loading="lazy">
+      <figcaption>The Overview. The forecast for the work already in progress at the top, five headline KPIs beneath it, then <strong>Needs attention</strong> beside <strong>Where work waits</strong>, and two trend lines at the bottom. The At&nbsp;risk card is outlined in red when anything is past the 85th percentile.</figcaption>
     </figure>
 
+    <h2>Work in progress forecast</h2>
+    <p>
+      The top card runs the <a href="forecast.html">Forecast</a> for the items
+      currently in progress and says, in one sentence, the date you can be 85%
+      confident they are done by. Beside it, the 50%, 70%, 85% and 95% dates
+      show how much later a safer promise is. <strong>Open forecast</strong>
+      takes you to the Forecast tab, which starts from the same items.
+    </p>
+
+    <h2>First visit</h2>
+    <p>
+      The first time you open FlowPaths on a board, a short welcome card shows
+      three steps: check your workflow setup, see what is aging, and get a date
+      you can trust. <strong>Got it</strong> hides it; this is remembered in your
+      own browser.
+    </p>
+
     <h2>Headline KPIs</h2>
-    <p>Four numbers, each with a trend indicator against the earlier half of your selected date range:</p>
+    <p>Five numbers; the ones that can change over time show a trend against the earlier half of your selected date range:</p>
     <table>
       <thead><tr><th>KPI</th><th>What it means</th></tr></thead>
       <tbody>
         <tr><td><strong>Throughput</strong></td><td>Items completed per week, averaged across the whole selected period &mdash; including weeks where nothing finished. Because it is an average over the window, changing the date range changes it: a longer range covering a quieter stretch shows a lower rate. To see week-by-week <em>variation</em> rather than the average, use the <a href="cumulative-flow.html">Throughput Run Chart</a>.</td></tr>
         <tr><td><strong>Cycle time (85th percentile)</strong></td><td>85% of finished items completed in this many days or fewer &mdash; your practical delivery-time ceiling. This always describes exactly what you have filtered to, so narrowing to one issue type shows that type&rsquo;s own figure.</td></tr>
         <tr><td><strong>Done / Total</strong></td><td>Of the items created in the window, how many have reached Done.</td></tr>
-        <tr><td><strong>WIP &amp; at-risk count</strong></td><td>How much is currently in progress, and how many of those items are already statistically at risk of running long. The at-risk count needs enough completed work to judge against &mdash; it reads &ldquo;not enough history&rdquo; until there are 7 finished items. See <a href="aging-wip.html">Aging WIP</a>.</td></tr>
+        <tr><td><strong>In progress (WIP) and At risk</strong></td><td>How much is currently in progress, and how many of those items are already statistically at risk of running long. The at-risk count needs enough completed work to judge against &mdash; it reads &ldquo;not enough history&rdquo; until there are 7 finished items. See <a href="aging-wip.html">Aging</a>.</td></tr>
       </tbody>
     </table>
     <p>
-      Each KPI shows a <strong>▲/▼ trend</strong> comparing the recent half of
-      your date range against the earlier half, plus a small trend
-      sparkline — so you can tell at a glance whether things are improving
-      or slipping, not just what the current number is.
+      Throughput and cycle time show a <strong>▲/▼ trend</strong> comparing
+      the recent half of your date range against the earlier half, and the two
+      trend lines at the bottom of the page show the same over time &mdash; so
+      you can tell at a glance whether things are improving or slipping, not
+      just what the current number is.
     </p>
 
     <h2>"Needs attention"</h2>
     <p>
       A ranked list of the open items most likely to slip — pulled from the
-      same at-risk logic used in <a href="aging-wip.html">Aging WIP</a>.
+      same at-risk logic used in <a href="aging-wip.html">Aging</a>.
       This is designed to be actionable: work it top-down in a stand-up or
-      WIP review, rather than reading through the whole board.
+      WIP review, rather than reading through the whole board. Each row shows
+      the item&rsquo;s status, its age, how long it has been in that status,
+      when it last changed and whether it has moved back; <strong>Details</strong>
+      opens its history.
+    </p>
+
+    <h2>Where work waits</h2>
+    <p>
+      The median time finished items spent in each Doing status, as one bar
+      split by status. The status where work spends longest is named underneath,
+      because that is usually the first place to look when cycle time is too
+      long. These are the same times as the &ldquo;time in status&rdquo; columns
+      in the <a href="configuration.html#export-csv">CSV export</a>.
     </p>
 
     <div class="callout">
-      <strong>Tip:</strong> If the Dashboard's numbers look off, it's almost
-      always a <a href="configuration.html">Status Mapping</a> issue — check
-      that every status on your board has been mapped to To Do, Doing, or
-      Done.
+      <strong>Tip:</strong> If the Overview's numbers look off, it's almost
+      always a <a href="configuration.html">workflow setup</a> issue — open
+      <strong>Workflow</strong> at the top right and check that every status
+      on your board has been mapped to To Do, Doing, or Done.
     </div>
 
     <h2 id="measure">Measuring a single stage</h2>
@@ -111,7 +142,7 @@
     </p>
 
     <div class="next-page">
-      Next: <a href="scatterplot.html">Cycle Time Scatterplot →</a>
+      Next: <a href="scatterplot.html">Cycle time →</a>
     </div>
 
     <footer class="site-footer">

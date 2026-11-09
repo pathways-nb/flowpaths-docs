@@ -22,11 +22,11 @@
     <a href="getting-started.html">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html">Aging WIP</a>
-    <a href="forecast.html" class="active">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html" class="active">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -52,8 +52,8 @@
     </p>
 
     <figure class="shot">
-      <img src="assets/img/forecast-when.png" alt="Monte Carlo forecast answering when 30 items will finish, at four confidence levels" loading="lazy">
-      <figcaption><strong>When will N items finish?</strong> &mdash; 30 items, simulated 10,000 times from historical throughput. Each card is a confidence level: 50% by Oct&nbsp;26, but 85% by Nov&nbsp;8. The histogram shows the full distribution, with the low-confidence tail in red.</figcaption>
+      <img src="assets/img/forecast-when.png" alt="Forecast answering when a number of items will be done, with the 85% date first and a chart of 10,000 possible futures" loading="lazy">
+      <figcaption><strong>When will N items be done?</strong> &mdash; simulated 10,000 times from historical throughput. The dark card is the 85% date, the one to commit to; the other cards show 50%, 70% and 95%. In the chart each bar is a possible finish day, coloured by how safe it is to commit to: red under 70%, orange 70&ndash;85%, green 85% or more.</figcaption>
     </figure>
 
     <h2>How it works</h2>
@@ -88,18 +88,19 @@
       <li>For <strong>"when"</strong>, the 85% row is the day by which 85% of the 10,000 simulations had finished — so a higher confidence number means a <em>later</em> date.</li>
       <li>For <strong>"how many"</strong>, FlowPaths reports a lower bound ("at least this many"), so 85% confidence is actually the 15th-percentile count — a higher confidence number here means <em>fewer</em> items, since it's being more cautious about the promise.</li>
     </ul>
-    <p>Use the 85% or 95% rows for commitments — the same percentiles used on the <a href="scatterplot.html">Scatterplot</a> and <a href="aging-wip.html">Aging WIP</a>.</p>
+    <p>Use the 85% or 95% rows for commitments — the same percentiles used on the <a href="scatterplot.html">Cycle time</a> and <a href="aging-wip.html">Aging</a> tabs.</p>
 
     <figure class="shot">
       <img src="assets/img/forecast-how-many.png" alt="Monte Carlo forecast answering how many items will be done by a target date" loading="lazy">
-      <figcaption><strong>How many done by a date?</strong> &mdash; the same simulation asked the other way round. By 31&nbsp;October you can be 50% confident of 33 items, but 95% confident only of 22. The gap between those two numbers is the honest measure of your predictability.</figcaption>
+      <figcaption><strong>How many done by a date?</strong> &mdash; the same simulation asked the other way round. By 9&nbsp;December you can be 50% confident of 6 items, but 85% confident only of 2. The gap between those numbers is the honest measure of your predictability; this board has only 17 finished items to learn from, so the gap is wide.</figcaption>
     </figure>
 
     <h2 id="planning">Planning a forecast</h2>
     <p>
       The normal forecast assumes work starts today and that capacity matches
       your history. If you know otherwise, these controls let you say so. The
-      images in this section use example data.
+      images of locked months and of sprints use example data and an earlier
+      design.
     </p>
 
     <h3 id="start-date">Start date</h3>
@@ -110,9 +111,14 @@
       back.
     </p>
 
-    <h3 id="capacity-plan">Capacity plan</h3>
+    <h3 id="capacity-plan">Team capacity plan</h3>
+    <p>
+      For any known change in how much of the team&rsquo;s time goes to this
+      work: time off, other projects, support duty or events &mdash; or people
+      joining.
+    </p>
     <ol>
-      <li>Open the <strong>Capacity plan</strong> button.</li>
+      <li>In the <strong>Team capacity plan</strong> card below the chart, open the <strong>Capacity plan</strong> button.</li>
       <li>Click a month on the 12-month strip.</li>
       <li>Choose 100, 75, 50, 25 or 0%, or type a value from 0 to 200.</li>
     </ol>
@@ -122,8 +128,8 @@
       site&rsquo;s timezone.
     </p>
     <figure class="shot">
-      <img src="assets/img/forecast-capacity-plan.png" alt="Forecast tab with the capacity plan open, January set to 50%, and a bar showing the likely finish" loading="lazy">
-      <figcaption><strong>January at 50%.</strong> The bar under the strip runs from the 50% date in amber to the 95% date in green, with a dot on the 85% date. Darker months have less capacity; green means more than normal.</figcaption>
+      <img src="assets/img/forecast-capacity-plan.png" alt="Forecast tab with the team capacity plan open, December set to 50%, and a bar showing the likely finish" loading="lazy">
+      <figcaption><strong>December at 50%.</strong> The 85% date moves 15 days later, to 9 February. The bar under the strip runs from the 50% date in amber to the 95% date in green, with a dot on the 85% date. Darker months have less capacity; green means more than normal.</figcaption>
     </figure>
     <p>
       A capacity plan is a what-if. The normal forecast stays visible, so you
@@ -131,7 +137,7 @@
     </p>
     <figure class="shot">
       <img src="assets/img/forecast-capacity-chart.png" alt="Forecast cards showing the difference from normal, above a chart with the normal forecast in grey behind" loading="lazy">
-      <figcaption><strong>Compared with normal.</strong> Each card shows the change, such as 5 days later. Grey bars are the normal forecast.</figcaption>
+      <figcaption><strong>Compared with normal.</strong> Each card shows the change, such as 15 days later. Outlined grey bars are the normal forecast.</figcaption>
     </figure>
 
     <h3>How the percentage is applied</h3>
