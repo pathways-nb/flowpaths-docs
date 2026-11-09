@@ -22,11 +22,11 @@
     <a href="getting-started.html">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html">Aging WIP</a>
-    <a href="forecast.html">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html" class="active">Configuration &amp; Filters</a>
@@ -43,9 +43,9 @@
     <h1>Configuration &amp; Filters</h1>
     <p class="lede">Everything that shapes what the charts show, in one place.</p>
 
-    <h2>Status Mapping</h2>
+    <h2 id="workflow">Workflow setup (Status Mapping)</h2>
     <p>
-      Click the "Doing → Done" pill in the filter bar. Drag every status
+      Click <strong>Workflow</strong> at the top right. Drag every status
       your board uses into <strong>To Do</strong>, <strong>Doing</strong>,
       <strong>Done</strong> — or <strong>Unmapped</strong> to exclude it
       entirely. Cycle time is measured per issue from the first time it
@@ -55,13 +55,13 @@
     </p>
 
     <figure class="shot">
-      <img src="assets/img/status-mapping.png" alt="Status Mapping drawer with statuses dragged into To Do, Doing, Done and Unmapped buckets" loading="lazy">
-      <figcaption>Status Mapping. Drag each status into a bucket &mdash; cycle time starts the first time an item enters a <strong>Doing</strong> status and ends the first time it enters a <strong>Done</strong> one. Unmapped statuses are ignored entirely, which is how boards spanning several projects with different workflows stay comparable.</figcaption>
+      <img src="assets/img/status-mapping.png" alt="Workflow setup drawer with statuses dragged into To Do, Doing, Done and Unmapped buckets" loading="lazy">
+      <figcaption>Workflow setup. Drag each status into a bucket &mdash; cycle time starts the first time an item enters a <strong>Doing</strong> status and ends the first time it enters a <strong>Done</strong> one. Unmapped statuses are ignored entirely, which is how boards spanning several projects with different workflows stay comparable.</figcaption>
     </figure>
 
     <h2 id="statuses">Statuses dropdown</h2>
     <p>
-      The &ldquo;Statuses (N/M)&rdquo; dropdown does <strong>two different
+      The &ldquo;Statuses&rdquo; dropdown does <strong>two different
       jobs</strong>, and the group a status sits in decides which. Each status
       shows how many loaded items are currently in it, e.g. &ldquo;In Progress
       (20).&rdquo;
@@ -99,8 +99,9 @@
       <li><strong>Done / total does not change.</strong> It counts the items
         <em>created</em> in the period whatever statuses they passed through, and its
         own help says so while a measure is on.</li>
-      <li>The pill turns blue while a narrowed measure is on, and a note above
-        every chart states exactly what is being measured.</li>
+      <li>The dropdown shows how many statuses are ticked while a narrowed
+        measure is on, and a note above every chart states exactly what is being
+        measured.</li>
       <li><strong>Status Mapping is not affected.</strong> This is a way of
         reading your data, not a change to it.</li>
     </ul>
@@ -122,8 +123,8 @@
     </p>
 
     <figure class="shot">
-      <img src="assets/img/filter-statuses.png" alt="Status filter dropdown grouped by Doing, Done, To Do and Unmapped" loading="lazy">
-      <figcaption>Grouped by bucket, so the mapping is visible while you choose. Unticking a <strong>To Do</strong>, <strong>Done</strong> or <strong>Unmapped</strong> status changes the view only. Unticking a <strong>Doing</strong> status also changes what is measured, as described above.</figcaption>
+      <img src="assets/img/filter-statuses.png" alt="Statuses dropdown with a Measure time section for Doing statuses and a Show items section for the rest" loading="lazy">
+      <figcaption>Two sections. <strong>Measure time from start to finish</strong> lists the Doing statuses: unticking one changes what is measured, as described above. <strong>Show items currently in</strong> lists the rest: unticking one changes the view only. Each status shows how many loaded items are in it now.</figcaption>
     </figure>
 
     <h2>Board filter</h2>
@@ -138,8 +139,8 @@
     </p>
 
     <figure class="shot">
-      <img src="assets/img/filter-types.png" alt="Issue type filter dropdown listing the types present on the board" loading="lazy">
-      <figcaption>The issue type filter. Each type is judged against its own completed history once there are enough finished items of it; below that, risk falls back to the whole board and the app says so rather than silently flagging nothing.</figcaption>
+      <img src="assets/img/filter-types.png" alt="Work types dropdown listing the issue types present on the board" loading="lazy">
+      <figcaption>The work types filter. Each type is judged against its own completed history once there are enough finished items of it; below that, risk falls back to the whole board and the app says so rather than silently flagging nothing.</figcaption>
     </figure>
 
     <h2 id="date-range">Date range</h2>
@@ -176,12 +177,12 @@
       is abandoned rather than in progress. Excluding it keeps a stale backlog
       from crowding out recent items when a large board hits the load limit,
       and stops it flattening the To&nbsp;Do band on the
-      <a href="cumulative-flow.html">Cumulative Flow Diagram</a>.
+      <a href="cumulative-flow.html">CFD</a>.
     </p>
 
     <figure class="shot">
-      <img src="assets/img/settings.png" alt="Settings drawer showing Calendar days and Duration mode measurement options" loading="lazy">
-      <figcaption>Settings, saved per project. <strong>Calendar days</strong> is the default and the convention most flow-metrics tools use. <strong>Duration mode</strong> switches to raw elapsed time, which helps when work regularly finishes the same day and everything would otherwise cluster at &ldquo;1 day&rdquo;.</figcaption>
+      <img src="assets/img/settings.png" alt="Settings drawer with how to count time, excluded items, data and about sections" loading="lazy">
+      <figcaption>Settings, behind the sliders icon at the top right. How to count time is saved per project; the drawer also lists excluded items, where the data comes from, and the app&rsquo;s terms and support. <strong>Calendar days</strong> is the default and the convention most flow-metrics tools use. <strong>Duration mode</strong> switches to raw elapsed time, which helps when work regularly finishes the same day and everything would otherwise cluster at &ldquo;1 day&rdquo;.</figcaption>
     </figure>
 
     <h2 id="fetch-limit">On very large boards</h2>
@@ -191,7 +192,7 @@
       about 260 a year &mdash; but a large multi-team board can.
     </p>
     <p>
-      When it happens, the filter bar shows the <strong>exact date the data is
+      When it happens, the toolbar shows the <strong>exact date the data is
       complete from</strong>, and anything older was not loaded. That date is
       not an estimate: issues are fetched newest-activity-first, so the oldest
       one received is precisely the boundary. Everything after it is present;
@@ -206,21 +207,26 @@
 
     <h2 id="refresh">Refresh</h2>
     <p>
-      The <strong>&#8635;</strong> pill in the filter bar shows how old the
-      loaded data is (&ldquo;4m ago&rdquo;) and reloads it from Jira. Because
+      The toolbar shows how old the loaded data is (&ldquo;updated 4m
+      ago&rdquo;), and the <strong>&#8635;</strong> button beside it reloads it
+      from Jira. Because
       changing the range never refetches, this is how you pick up work that
       finished since you opened the app. Navigating away from the project and
       back also reloads.
     </p>
 
     <h2>Issue types</h2>
-    <p>Multi-select chips filter every chart by Story / Bug / Task / etc.</p>
+    <p>The &ldquo;All work types&rdquo; dropdown filters every chart by Story / Bug / Task / etc.</p>
 
-    <h2>Exclusions</h2>
+    <h2 id="exclusions">Exclusions</h2>
     <p>
       Remove a specific issue (a known outlier, a mis-tracked item) from
-      every metric with the Exclude action. Excluded issues persist per
-      project until you restore them.
+      every metric with the Exclude action, from the Cycle time tab&rsquo;s
+      <em>Longest items</em> or an item&rsquo;s panel. An <strong>Undo</strong>
+      message appears straight away. Excluded issues persist per project; while
+      any exist, an &ldquo;N excluded&rdquo; chip in the toolbar opens
+      <strong>Settings</strong>, where each one has a <strong>Restore</strong>
+      button.
     </p>
 
     <h2 id="duration-mode">Duration mode (optional, per project)</h2>
@@ -228,20 +234,20 @@
       By default, cycle time and age are measured in whole calendar days —
       the standard, verifiable convention most flow-metrics tools use. If
       your team's work regularly finishes within hours, that convention can
-      start clustering too much of the Scatterplot at exactly "1 day" to
+      start clustering too much of the Cycle time chart at exactly "1 day" to
       stay useful — a task that took 15 minutes and one that took 20 hours
       both just read as "1 day."
     </p>
     <p>
-      Duration mode switches Cycle Time and Aging WIP to raw elapsed
+      Duration mode switches Cycle time and Aging to raw elapsed
       duration instead (shown as hours or minutes when under a day) — no
       calendar-day rounding. Turn it on from <strong>Settings</strong> (the
-      gear icon, top right). It's off by default and saved per project,
+      sliders icon, top right). It's off by default and saved per project,
       exactly like Status Mapping, so different projects can use whichever
       convention fits their pace.
     </p>
     <div class="callout">
-      <strong>Scope:</strong> Dashboard, Scatterplot, and Aging WIP switch
+      <strong>Scope:</strong> Overview, Cycle time, and Aging switch
       units when this is on. The Cumulative Flow Diagram and Forecast are
       unaffected — both are inherently daily-bucketed (a CFD is a snapshot
       of WIP per day; Forecast resamples daily throughput to answer
@@ -251,7 +257,7 @@
 
     <h2>Rework: returns &amp; reopens</h2>
     <p>
-      Shown in <a href="aging-wip.html">Aging WIP</a>. A <strong>return</strong>
+      Shown in <a href="aging-wip.html">Aging</a>. A <strong>return</strong>
       is a backward step in the workflow that didn't come from Done (e.g.
       QA → In Development); a <strong>reopen</strong> is a backward step
       from a Done status. "Backward" follows your Status Mapping order, so
@@ -264,7 +270,7 @@
       counted in your <strong>Jira site's own timezone</strong> — not each
       viewer's personal timezone. An item that starts and finishes on the
       same day counts as 1 day, never 0. All day/week buckets across every
-      chart (Scatterplot, CFD, throughput, Aging WIP) use that same site
+      chart (Cycle time, CFD, throughput, Aging) use that same site
       timezone, so the numbers match what Jira itself reports, and look
       identical for every viewer regardless of their own profile timezone.
     </p>
@@ -277,16 +283,16 @@
       <a href="#duration-mode">Duration mode</a> it is raw elapsed time instead.
     </p>
 
-    <h2>Download PNG</h2>
+    <h2>Copy or download a chart</h2>
     <p>
-      Every main chart has a small download icon in the top-right corner.
-      Click it to save the chart as a PNG for reports or chat — this exports
-      the chart only, not the filter bar or JQL.
+      Every main chart has icons in its top-right corner: focus mode, copy as
+      an image, and download as PNG, for reports or chat. Only the chart is
+      exported, not the toolbar or JQL.
     </p>
 
     <h2 id="export-csv">Export to CSV</h2>
     <p>
-      The <strong>&#10515; Export</strong> pill in the filter bar downloads the
+      The <strong>&#10515; Export</strong> button in the toolbar downloads the
       work items currently loaded, so you can take the numbers into a
       spreadsheet or your own tooling. Two files are produced:
     </p>

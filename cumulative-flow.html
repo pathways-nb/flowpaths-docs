@@ -22,11 +22,11 @@
     <a href="getting-started.html">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html" class="active">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html">Aging WIP</a>
-    <a href="forecast.html">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html" class="active">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -40,7 +40,7 @@
   </nav>
 
   <main class="content">
-    <h1>Cumulative Flow Diagram (CFD)</h1>
+    <h1>CFD (Cumulative Flow Diagram)</h1>
     <p class="lede">See work-in-progress, flow rate, and stability at a glance &mdash; plus the Throughput Run Chart on the same tab.</p>
 
     <p>
@@ -50,8 +50,8 @@
     </p>
 
     <figure class="shot">
-      <img src="assets/img/cumulative-flow.png" alt="Cumulative Flow Diagram with stacked status bands, arrival and throughput rate lines, and a hover tooltip" loading="lazy">
-      <figcaption>The Cumulative Flow Diagram. Band height is WIP in that status, band slope is flow rate, and the horizontal gap between lines is roughly cycle time. The banner above the chart reads the two grey rate lines for you &mdash; here <strong>stable</strong>, with arrivals and throughput both at 0.6/day.</figcaption>
+      <img src="assets/img/cumulative-flow.png" alt="CFD tab: a headline reading the flow, the stacked status bands, and the By status table beside them" loading="lazy">
+      <figcaption>The CFD tab. The headline reads the two grey rate lines for you &mdash; <strong>Steady</strong>, <strong>Filling up</strong> or <strong>Draining</strong> &mdash; with started and finished per week, average work in progress and average time to finish. Band height is WIP in that status, band slope is flow rate, and the horizontal gap between lines is roughly cycle time. The <strong>By status</strong> table beside the chart gives each status&rsquo;s rates, WIP and days.</figcaption>
     </figure>
 
     <h2>The four things you can read off it</h2>
@@ -73,12 +73,12 @@
     <h2>Warning signs to watch for</h2>
     <ul>
       <li><strong>A band that keeps widening</strong> — work is entering a stage faster than it leaves. The fix is usually a WIP limit, not pushing harder.</li>
-      <li><strong>Diverging</strong> arrival/throughput lines — you're starting faster than you're finishing (WIP and cycle time will grow). <strong>Parallel</strong> means stable. <strong>Converging</strong> means you're finishing faster than starting.</li>
+      <li><strong>Diverging</strong> arrival/throughput lines — you're starting faster than you're finishing (WIP and cycle time will grow); the headline says <strong>Filling up</strong>. <strong>Parallel</strong> means stable (<strong>Steady</strong>). <strong>Converging</strong> means you're finishing faster than starting (<strong>Draining</strong>).</li>
     </ul>
 
     <figure class="shot">
-      <img src="assets/img/throughput-run-chart.png" alt="Summary statistics table per workflow stage above the Throughput Run Chart" loading="lazy">
-      <figcaption>Per-stage arrival rate, throughput, WIP and cycle time, above the Throughput Run Chart. The bars are raw daily counts and the orange line a 4-day rolling average &mdash; this is where week-to-week variation shows, which the CFD’s straight average deliberately flattens away.</figcaption>
+      <img src="assets/img/throughput-run-chart.png" alt="Throughput Run Chart with weekly bars, a 4-week rolling average and the window average" loading="lazy">
+      <figcaption>The Throughput Run Chart, below the CFD. Each bar is the number of items finished that week, the orange line a 4-week rolling average, and the dashed line the average for the whole range &mdash; this is where week-to-week variation shows, which the CFD’s straight average deliberately flattens away.</figcaption>
     </figure>
 
     <h2>Throughput Run Chart</h2>
@@ -91,7 +91,7 @@
       It exists because throughput is a time-based metric, and time-based metrics
       need a time-based chart. The CFD's throughput rate line is a single
       <em>straight average</em>, and the
-      &ldquo;Throughput / week&rdquo; figure on the <a href="dashboard.html">Dashboard</a>
+      &ldquo;Throughput / week&rdquo; figure on the <a href="dashboard.html">Overview</a>
       is a single number &mdash; both tell you the overall pace but deliberately
       flatten away <strong>variation</strong>. Two teams averaging 4 items a week
       look identical there, even if one delivers steadily and the other delivers
@@ -134,10 +134,10 @@
 
     <h2>How to use it</h2>
     <ul>
-      <li>A CFD only shows the <strong>past</strong> — it's a retrospective tool, not a forecasting one. For forecasting, use the <a href="scatterplot.html">Scatterplot</a> percentiles or the <a href="forecast.html">Forecast</a> tab.</li>
+      <li>A CFD only shows the <strong>past</strong> — it's a retrospective tool, not a forecasting one. For forecasting, use the <a href="scatterplot.html">Cycle time</a> percentiles or the <a href="forecast.html">Forecast</a> tab.</li>
       <li>Review it on a fixed cadence (weekly is common) so trend changes get caught early.</li>
-      <li>Drag the Data Control (the brush below the chart) to recompute the summary stats for any sub-window.</li>
-      <li>The status filter hides a status's band temporarily; to permanently remove a status from the metric, set it to <strong>Unmapped</strong> in <a href="configuration.html">Status Mapping</a>.</li>
+      <li>Drag the focus bar below the chart to recompute the <strong>By status</strong> table for any sub-window.</li>
+      <li>The Statuses dropdown hides a status's band temporarily; to permanently remove a status from the metric, set it to <strong>Unmapped</strong> in the <a href="configuration.html">workflow setup</a>.</li>
     </ul>
 
     <h2 id="measure">This chart does not narrow</h2>
@@ -154,7 +154,7 @@
     </p>
 
     <div class="next-page">
-      Next: <a href="aging-wip.html">Aging WIP →</a>
+      Next: <a href="aging-wip.html">Aging →</a>
     </div>
 
     <footer class="site-footer">

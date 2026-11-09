@@ -22,11 +22,11 @@
     <a href="getting-started.html" class="active">Getting Started</a>
 
     <h4>Features</h4>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="scatterplot.html">Cycle Time Scatterplot</a>
-    <a href="cumulative-flow.html">Cumulative Flow Diagram</a>
-    <a href="aging-wip.html">Aging WIP</a>
-    <a href="forecast.html">Forecast (Monte Carlo)</a>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html">Forecast</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -62,15 +62,16 @@
         FlowPaths automatically reads your board's existing saved filter
         (including multi-project filters) and loads the last 90 days of
         activity — plus any item that's still open, so a long-running item
-        never silently disappears from Aging WIP or your WIP count. Want more
+        never silently disappears from Aging or your WIP count. Want more
         history? The range track goes to <strong>1 year</strong>; see
-        <a href="configuration.html#date-range">Date range</a>. The data-source
-        pill and "View JQL" link show you exactly what was queried, so you can
-        always confirm what you're looking at.
+        <a href="configuration.html#date-range">Date range</a>. The item count at
+        the right of the toolbar (&ldquo;150 items &middot; 81 in view&rdquo;)
+        opens the exact query used, so you can always confirm what you're
+        looking at.
       </li>
       <li>
-        <strong>Set your Status Mapping (recommended, takes a minute).</strong>
-        Click the "Doing → Done" pill in the filter bar and drag each of
+        <strong>Check your workflow setup (recommended, takes a minute).</strong>
+        Click <strong>Workflow</strong> at the top right and drag each of
         your board's statuses into <strong>To Do</strong>,
         <strong>Doing</strong>, or <strong>Done</strong> — or
         <strong>Unmapped</strong> to ignore a status entirely. This is what
@@ -80,10 +81,10 @@
       </li>
       <li>
         <strong>Explore the tabs.</strong> Start with the
-        <a href="dashboard.html">Dashboard</a> for the big picture, then dig
-        into <a href="scatterplot.html">Scatterplot</a>,
-        <a href="cumulative-flow.html">Cumulative Flow</a>,
-        <a href="aging-wip.html">Aging WIP</a>, or
+        <a href="dashboard.html">Overview</a> for the big picture, then dig
+        into <a href="scatterplot.html">Cycle time</a>,
+        <a href="cumulative-flow.html">CFD</a>,
+        <a href="aging-wip.html">Aging</a>, or
         <a href="forecast.html">Forecast</a> for the details behind it.
       </li>
     </ol>
@@ -97,8 +98,8 @@
     </div>
 
     <figure class="shot">
-      <img src="assets/img/help-panel.png" alt="The in-app help panel describing each of the five FlowPaths tabs" loading="lazy">
-      <figcaption>Every screen has this panel behind the &#9432; icon in the top right &mdash; the same explanations as these docs, without leaving Jira.</figcaption>
+      <img src="assets/img/help-panel.png" alt="The in-app help panel with search, guides for each tab and the checks behind the numbers" loading="lazy">
+      <figcaption>Every screen has this panel behind the <strong>?</strong> icon in the top right &mdash; searchable, with a guide to each tab and the same explanations as these docs, without leaving Jira.</figcaption>
     </figure>
 
     <h2>Why Status Mapping matters</h2>
@@ -121,7 +122,7 @@
     </p>
 
     <div class="next-page">
-      Next: <a href="dashboard.html">Dashboard →</a>
+      Next: <a href="dashboard.html">Overview →</a>
     </div>
 
     <footer class="site-footer">
