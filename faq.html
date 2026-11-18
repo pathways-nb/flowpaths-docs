@@ -27,6 +27,7 @@
     <a href="cumulative-flow.html">CFD</a>
     <a href="aging-wip.html">Aging</a>
     <a href="forecast.html">Forecast</a>
+    <a href="review.html">Review</a>
 
     <h4>Reference</h4>
     <a href="configuration.html">Configuration &amp; Filters</a>
@@ -55,7 +56,7 @@
 
     <div class="faq-item">
       <div class="faq-q">What data does FlowPaths access?</div>
-      <p>Issue status, type, and dates (created, resolved, updated) plus status-change history and board configuration — never assignee, reporter, comments, attachments, or any other user-identifying field. See the <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a> for the full breakdown.</p>
+      <p>Issue status, type, and dates (created, resolved, updated) plus status-change history and board configuration. For the <a href="review.html">Review</a> tab, also each issue&rsquo;s sprints (name, dates, goal) and the history of sprint changes. Never assignee, reporter, comments, attachments, or any other user-identifying field. See the <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a> for the full breakdown.</p>
     </div>
 
     <div class="faq-item">
@@ -87,6 +88,21 @@
     <div class="faq-item">
       <div class="faq-q">Does a capacity plan affect my teammates?</div>
       <p>Yes. The capacity plan and sprint length are saved for everyone on the board, so anyone can see or change them. They change only the Forecast tab, and the normal forecast stays visible beside them. See <a href="forecast.html#capacity-plan">Capacity plan</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Where do the Review tab&rsquo;s committed and added numbers come from?</div>
+      <p>From Jira itself. Jira records every time an item enters or leaves a sprint, and FlowPaths replays that history: committed is what was in the sprint when it started, added is what went in afterwards. See <a href="review.html#definitions">Committed, added, removed and done</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why does the Review tab differ from Jira&rsquo;s Sprint Report?</div>
+      <p>Mostly because &ldquo;done&rdquo; follows your Workflow setup in FlowPaths, while Jira&rsquo;s report uses the board&rsquo;s last column. Also, an item taken out of the sprint and out of the board&rsquo;s filter is no longer loaded, so it isn&rsquo;t counted as removed. See <a href="review.html">Review</a>.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do Review settings affect my teammates?</div>
+      <p>Yes. Review by sprints or weeks, which period opens first, the week start and the hidden sections are saved for everyone on the board, and change only the Review tab. Which boxes you collapse is remembered only in your own browser.</p>
     </div>
 
     <div class="faq-item">
@@ -122,7 +138,7 @@
 
     <div class="faq-item">
       <div class="faq-q">What happens to my configuration if I uninstall FlowPaths?</div>
-      <p>Your Status Mapping and excluded-issue lists are stored in Atlassian's own Forge storage, not on any server of ours, and follow Atlassian's standard data-lifecycle/deletion process on uninstall. See <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy §7</a>.</p>
+      <p>Your Status Mapping, excluded-issue lists and board settings (the capacity plan and Review settings) are stored in Atlassian's own Forge storage, not on any server of ours, and follow Atlassian's standard data-lifecycle/deletion process on uninstall. See <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy §7</a>.</p>
     </div>
 
     <div class="faq-item">

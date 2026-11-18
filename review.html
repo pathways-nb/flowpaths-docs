@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review — FlowPaths Documentation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/logo.png" alt="">
+  <a class="name" href="index.html">FlowPaths</a>
+  <span class="tag">Documentation</span>
+  <div class="spacer"></div>
+  <a class="ext" href="https://pathways-nb.github.io/flow-metrics-legal/">Legal</a>
+  <a class="ext" href="mailto:info@yourpaths.eu">Support</a>
+</div>
+<div class="layout">
+  <nav class="sidebar">
+    <h4>Overview</h4>
+    <a href="index.html">Home</a>
+    <a href="getting-started.html">Getting Started</a>
+
+    <h4>Features</h4>
+    <a href="dashboard.html">Overview</a>
+    <a href="scatterplot.html">Cycle time</a>
+    <a href="cumulative-flow.html">CFD</a>
+    <a href="aging-wip.html">Aging</a>
+    <a href="forecast.html">Forecast</a>
+    <a href="review.html" class="active">Review</a>
+
+    <h4>Reference</h4>
+    <a href="configuration.html">Configuration &amp; Filters</a>
+    <a href="faq.html">FAQ</a>
+
+    <h4>Legal</h4>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/">Legal Overview</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/privacy-policy.html">Privacy Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/security-policy.html">Security Policy</a>
+    <a href="https://pathways-nb.github.io/flow-metrics-legal/eula.html">EULA</a>
+  </nav>
+
+  <main class="content">
+    <h1>Review</h1>
+    <p class="lede">Your sprint review, prepared from your real Jira sprints.</p>
+
+    <p>
+      The Review tab takes one sprint, or one week, and lays out what the team
+      committed to, what changed along the way, what got done and what is worth
+      talking about. It uses your board&rsquo;s actual Jira sprints and every
+      item&rsquo;s history, so there is nothing to set up and nothing to estimate.
+      Bring it to the sprint review or the retro, or paste its summary into
+      Confluence or Slack.
+    </p>
+
+    <figure class="shot">
+      <img src="assets/img/review-summary.png" alt="Review tab: the active sprint's headline, sprint goal, What to talk about and tiles compared with the usual" loading="lazy">
+      <figcaption>The active sprint at a glance: how much of the commitment is done and how many days are left, the sprint goal, the points worth discussing, and each number against the team&rsquo;s usual.</figcaption>
+    </figure>
+
+    <h2>Choosing what to review</h2>
+    <ul>
+      <li>The tab opens on the <strong>active sprint</strong>, or on the last closed one if you prefer (see <a href="#settings">Review settings</a>). Pick any other sprint from the list at the top.</li>
+      <li>Only sprints that started inside the loaded history can be reviewed, so every item that was in them is counted. FlowPaths loads 90 days at first; <strong>Load 12 months</strong> brings older sprints into the list.</li>
+      <li>When a board has sprints of its own, only those are listed. Sprints another team&rsquo;s board pulled in are theirs to review.</li>
+      <li>Boards without sprints get a <a href="#weekly">weekly review</a> instead.</li>
+      <li>The <strong>work type</strong> filter applies here. The date range does not: the sprint or week sets the dates.</li>
+    </ul>
+
+    <h2 id="definitions">Committed, added, removed and done</h2>
+    <p>
+      Jira records every time an item is put into or taken out of a sprint.
+      FlowPaths replays that history, so each number reflects what really
+      happened, not just where items sit today:
+    </p>
+    <ul>
+      <li><strong>Committed</strong> &mdash; in the sprint at the moment it started.</li>
+      <li><strong>Added</strong> &mdash; put into the sprint after it started, including items created straight into it.</li>
+      <li><strong>Removed</strong> &mdash; in the sprint after it started, but not when it ended.</li>
+      <li><strong>Done</strong> &mdash; still in the sprint at the end, and finished by then. &ldquo;Finished&rdquo; follows your <a href="configuration.html#workflow">Workflow setup</a>, the same as every other tab.</li>
+    </ul>
+    <p>
+      For a closed sprint, &ldquo;the end&rdquo; is the moment it was completed in
+      Jira; for the active sprint, it is now. When Jira moves unfinished work into
+      the next sprint on completion, those items count as <em>not done</em>, not as
+      removed.
+    </p>
+
+    <h2>The summary</h2>
+    <ul>
+      <li>The <strong>headline</strong> says how much of the commitment is done, with the days left (or, for a closed sprint, the share of the commitment completed).</li>
+      <li>One sentence covers what was added and how much of it is done, what was removed, and what the team is 85% likely to finish in the days left.</li>
+      <li>The <strong>sprint goal</strong> from Jira, when the sprint has one.</li>
+      <li><strong>What to talk about</strong> &mdash; up to four points, the ones needing attention first. Each comes from a number on the page: scope added after the start, committed items not started yet, a status where work waited longer than usual, items older than usual, carried-over work.</li>
+    </ul>
+
+    <h2 id="share">Copy summary and Download .md</h2>
+    <p>
+      <strong>Copy summary</strong> and <strong>Download .md</strong> give you the
+      whole review as Markdown: the headline, the numbers, the talking points, what
+      was added or removed, what finished, what is still open, what moved back and
+      the retro questions. Every issue is a link to it in Jira. Paste it into a
+      Confluence page, a Slack thread or a ticket. If Jira blocks copying to the
+      clipboard in your browser, use Download .md instead.
+    </p>
+
+    <h2 id="usual">Compared with the usual</h2>
+    <p>
+      Each number shows the team&rsquo;s <strong>usual</strong>: the median of the
+      3 closed sprints before the one you are looking at (or the 3 weeks before, in a
+      weekly review). The median keeps one unusual sprint from moving the bar. An
+      active sprint is never part of the usual, because it isn&rsquo;t finished.
+    </p>
+
+    <h2>Sprint scope and finished per day</h2>
+    <figure class="shot">
+      <img src="assets/img/review-scope.png" alt="Sprint scope bar split into committed done, committed not done, added done, added not done and removed, with a table of added items and a finished-per-day strip" loading="lazy">
+      <figcaption>The scope bar shows how the sprint&rsquo;s work splits between committed and added, done and not done, and removed. The table lists every item added or taken out, with the day of the sprint it happened and its status now.</figcaption>
+    </figure>
+    <p>
+      <strong>Finished per day</strong> runs over the sprint&rsquo;s own dates, with
+      the days still to come shown dashed. It only runs past the end date when the
+      sprint did.
+    </p>
+
+    <h2>The details</h2>
+    <figure class="shot">
+      <img src="assets/img/review-boxes.png" alt="Finished this sprint with cycle times, and Where work waited with a stacked bar and each status against its usual" loading="lazy">
+      <figcaption>Boxes side by side share one height. A long list scrolls inside its box; <strong>Show all</strong> opens it fully.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Finished</strong> &mdash; each item with its finish date, cycle time and whether it was committed or added. Cycle times past the 85% line are orange, the same line <a href="aging-wip.html">Aging</a> uses.</li>
+      <li><strong>Where work waited</strong> &mdash; the median time the finished items spent in each Doing status, against the usual, with a note on the biggest change.</li>
+      <li><strong>Still open, needs attention</strong> &mdash; open items in the sprint past the 85% line (orange) or 95% line (red), or with no change for 5 days or more, with their time in the current status and how often they moved back. For a closed sprint, this becomes <strong>Not finished when the sprint closed</strong>.</li>
+      <li><strong>Moved back</strong> &mdash; backward moves during the sprint, grouped by move (for example Review &rarr; In Progress), with moves out of Done labelled as reopened. &ldquo;Backward&rdquo; follows the order in your Workflow setup.</li>
+      <li><strong>By the end of the sprint</strong> &mdash; what the team is 85% likely to finish in the days left, from the same Monte Carlo simulation as the <a href="forecast.html">Forecast</a> tab. Use the Forecast tab to plan the next sprints, including time off and capacity changes.</li>
+      <li><strong>Questions for the retro</strong> &mdash; a few open questions drawn from the numbers, to start the conversation.</li>
+    </ul>
+    <p>Every issue key opens the item in Jira. Each box&rsquo;s heading collapses it; <strong>Collapse all</strong> closes them all. What you collapse is remembered in your own browser.</p>
+
+    <h2 id="weekly">Weekly review</h2>
+    <p>
+      Boards without sprints, or teams that choose <strong>Weeks</strong> in the
+      settings, review one week at a time: what finished, what started, the median
+      cycle time and the open work that needs attention, each against the usual of
+      the 3 weeks before. The current week is reviewed as it stands; earlier weeks
+      can be picked from the list.
+    </p>
+
+    <h2 id="settings">Review settings</h2>
+    <figure class="shot">
+      <img src="assets/img/review-settings.png" alt="Review settings open on the Review tab: review by Jira sprints or weeks, which period to open on, and which sections to show" loading="lazy">
+      <figcaption>Review settings open on the tab itself.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Review by</strong> &mdash; Jira sprints or weeks.</li>
+      <li><strong>Open this tab on</strong> &mdash; the active sprint (or current week), or the last finished one.</li>
+      <li><strong>Week starts on</strong> &mdash; Monday, Sunday or Saturday. Shown only for weekly reviews, since sprints use their own dates from Jira.</li>
+      <li><strong>Show</strong> &mdash; hide the sections your team doesn&rsquo;t use.</li>
+    </ul>
+    <p>Settings are saved for <strong>everyone on the board</strong> and change only the Review tab.</p>
+
+    <h2>How it differs from Jira&rsquo;s Sprint Report</h2>
+    <ul>
+      <li><strong>Done follows your Workflow setup</strong>; Jira&rsquo;s report uses the board&rsquo;s last column. On a typical board they agree.</li>
+      <li>An item taken out of the sprint <em>and</em> out of the board&rsquo;s filter is no longer loaded, so it isn&rsquo;t counted as removed.</li>
+      <li>FlowPaths adds what the Sprint Report doesn&rsquo;t: the usual, where work waited, aging and rework, and a forecast for the days left.</li>
+    </ul>
+
+    <h2>How to use it</h2>
+    <ul>
+      <li><strong>Sprint review</strong>: open the active sprint on its last day and walk through the headline and What to talk about.</li>
+      <li><strong>Retro</strong>: open the closed sprint, then use Where work waited, Moved back and the retro questions to find one thing to change.</li>
+      <li><strong>Mid-sprint check</strong>: Still open, needs attention shows what to pull to done before starting anything new.</li>
+      <li><strong>Planning</strong>: go from &ldquo;By the end of the sprint&rdquo; to the <a href="forecast.html">Forecast</a> tab to size the next sprint from real throughput.</li>
+    </ul>
+
+    <div class="next-page">
+      Next: <a href="configuration.html">Configuration &amp; Filters →</a>
+    </div>
+
+    <footer class="site-footer">
+      FlowPaths is published by <a href="https://yourpaths.eu">pathways</a>
+      (Pathways Consulting Services P.C.) &middot;
+      <a href="mailto:info@yourpaths.eu">info@yourpaths.eu</a>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
